@@ -1,5 +1,5 @@
 posts.factory('getPosts',['$http',function($http){
-    return $http.get("public/getPosts")
+    return $http.get("getPosts")
         .then(function (response) {
             var json=response.data;
             return json;
