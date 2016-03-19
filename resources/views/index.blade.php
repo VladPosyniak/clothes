@@ -14,9 +14,24 @@
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-mocks.js')}}"></script>
     <script src="{{asset('scripts/app/lib/ng-infinite-scroll.min.js')}}"></script>
     <script src="{{asset('scripts/app/app.js')}}"></script>
+    <script src="{{asset('scripts/app/posts/service.js')}}"></script>
+    <script src="{{asset('scripts/app/posts/controller.js')}}"></script>
 
 </head>
-<body>
-<h1>index</h1>
+<body ng-app="mainApp">
+<div id="wrapper">
+	<div id="main">
+
+		<div class="news" ng-controller="postsController" >
+			<div infinite-scroll="getNextPosts()" infinite-scroll-distance="0">
+				<div  ng-repeat="post in posts track by $index">
+				<h2>@{{post.title}}</h2>
+				<img ng-src="@{{post.images}}"/>
+				</div>
+			</div>	
+		</div>
+
+	</div>
+</div>
 </body>
 </html>

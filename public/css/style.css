@@ -1,0 +1,32 @@
+*{margin:0;
+padding:0;}
+
+body, html {
+    font: 16px Century Gothic,
+    Trebuchet MS, sans-serif;
+    margin: auto;
+    height:100%;
+    background: #e1e2e9;
+    font-size: 1.1em;
+}
+
+#main{
+    margin:0 10% 0 10%;
+    width:80%;
+    min-height:100%;
+    border-radius:10px;
+    overflow: hidden;
+    background-color: #ecedf1;
+}
+
+.news {
+    margin:1% 0 0 21%;
+    vertical-align: top;
+    width: 49%;
+    display:inline-block;
+}
+
+.news img{
+    width:90%;
+    margin:0 0 0 5%;
+}
