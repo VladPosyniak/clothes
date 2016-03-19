@@ -1,8 +1,13 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>home</title>
+    <title></title>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='css/style.css'/>
+
+
 </head>
 <body>
 <h1>index</h1>
