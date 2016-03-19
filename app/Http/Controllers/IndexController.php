@@ -12,7 +12,7 @@ class IndexController extends Controller
     public function index(){
 
         
-        return '<h1>это главная страница, короче</h1> <p>все посты <a href="'.route('getPosts').'">тут</a></p>';
+        return view('index');
 //        $title = TestModel::all();
 //        $data = ['test' => 'text'];
 //        foreach ($title as $item) {
