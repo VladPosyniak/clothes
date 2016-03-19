@@ -16,22 +16,36 @@
     <script src="{{asset('scripts/app/app.js')}}"></script>
     <script src="{{asset('scripts/app/posts/service.js')}}"></script>
     <script src="{{asset('scripts/app/posts/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/posts/directive.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
 <div id="wrapper">
+<div id="line"><br></div>
 	<div id="main">
+		<div class="lside">
+			</br>
+			</br>
+			<div class="linside">
+				surprise, motherfucker!
+				гостю-тут будет просто инфа о сайте и так далее
 
-		<div class="news" ng-controller="postsController" >
-			<div infinite-scroll="getNextPosts()" infinite-scroll-distance="0">
-				<div  ng-repeat="post in posts track by $index">
-				<h2>@{{post.title}}</h2>
-				<img ng-src="@{{post.images}}"/>
-				</div>
-			</div>	
+				вошедшему-будет инфа о пользователе
+			</div>
+		</div>
+		<div class="posts" >
+			<posts></posts>
 		</div>
 
 	</div>
 </div>
+
+<footer>
+	<ul>
+		<li><a href="#">EzCoders</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">About us</a></li>
+	</ul>
+</footer>
 </body>
 </html>

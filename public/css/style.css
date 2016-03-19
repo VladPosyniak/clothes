@@ -10,6 +10,16 @@ body, html {
     font-size: 1.1em;
 }
 
+
+#line{
+    background-color: #e1e2e9;
+    position: relative;
+    z-index:10;
+    width:100%;
+    height:1%;
+
+}
+
 #main{
     margin:0 10% 0 10%;
     width:80%;
@@ -19,14 +29,67 @@ body, html {
     background-color: #ecedf1;
 }
 
-.news {
-    margin:1% 0 0 21%;
+.lside{
+    width: 19.4%;
+    height:100%;
+    vertical-align: top;
+    display:inline-block;
+}
+
+.linside{
+    width: 15.5%;
+    background-color:white;
+    z-index: 1;
+    position:fixed;
+    top:0;
+    height:100%;
+}
+
+.posts {
+    margin:1% 0 0 1%;
     vertical-align: top;
     width: 49%;
     display:inline-block;
 }
 
-.news img{
+.posts img{
     width:90%;
     margin:0 0 0 5%;
+}
+
+.post{
+    width:100%;
+    border: solid 1px #E0E0E0;
+    margin-bottom: 20px;
+    background: white;
+    text-align: left;
+    box-shadow: 6px 7px 29px 0px rgba(0,0,0,0.20);
+    padding:10px;
+    box-sizing:border-box;
+
+}
+
+
+
+
+footer{
+    background: #2B2A29;
+    width:100%;
+    display: inline-block;
+    position:relative;
+    z-index:10;
+}
+footer li{
+	list-style-type: none;
+    display:inline-block;
+}
+
+footer ul{
+    padding: 20px;
+}
+
+footer a{
+    color:white;
+    padding: 20px;
+    text-decoration:none;
 }
