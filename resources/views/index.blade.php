@@ -19,6 +19,7 @@
     <script src="{{asset('scripts/app/posts/directive.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/controller.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/modalPost/service.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
