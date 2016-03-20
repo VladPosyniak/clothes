@@ -1,4 +1,4 @@
-var posts=angular.module('postsApp', ['infinite-scroll']);
+var postsApp=angular.module('postsApp', ['infinite-scroll']);
 
 
 var main=angular.module('mainApp',['postsApp','ngRoute']);

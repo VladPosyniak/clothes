@@ -1,4 +1,4 @@
-main.directive('posts',function(){
+postsApp.directive('posts',function(){
     return {
         resrtict: "E",
         scope: {

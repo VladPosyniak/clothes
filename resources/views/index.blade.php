@@ -17,6 +17,8 @@
     <script src="{{asset('scripts/app/posts/service.js')}}"></script>
     <script src="{{asset('scripts/app/posts/controller.js')}}"></script>
     <script src="{{asset('scripts/app/posts/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/modalPost/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/modalPost/directive.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -34,6 +36,8 @@
 			</div>
 		</div>
 		<div class="posts" >
+
+			<modalpost></modalpost>
 			<posts></posts>
 		</div>
 
