@@ -17,4 +17,10 @@ class PostsController extends Controller
         $data = json_encode($query);
         echo $data;
     }
+    public function getPost(){
+        $id = $_POST['PostId'];
+        $query = PostsModel::find($id);
+        $data = json_encode($query);
+        echo $data;
+    }
 }
