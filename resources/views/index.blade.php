@@ -13,6 +13,7 @@
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-route.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-mocks.js')}}"></script>
     <script src="{{asset('scripts/app/lib/ng-infinite-scroll.min.js')}}"></script>
+    <script src="{{asset('scripts/app/lib/satellizer.min.js')}}"></script>
     <script src="{{asset('scripts/app/app.js')}}"></script>
     <script src="{{asset('scripts/app/posts/service.js')}}"></script>
     <script src="{{asset('scripts/app/posts/controller.js')}}"></script>
