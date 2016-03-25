@@ -1,9 +1,15 @@
-<div>
-	<input type="email" placeholder="Email" ng-model="auth.email">
-</div>
+<div ng-if='!token'>
+	<div>
+		<input type="email" placeholder="Email" ng-model="$parent.email">
+	</div>
 
-<div>
-	<input type="password" placeholder="Password" ng-model="auth.password">
-</div>
+	<div>
+		<input type="password" placeholder="Password" ng-model="$parent.password">
+	</div>
 
-<buttonng-click="auth.login()">Submit</button>
+	<button ng-click="login()">Submit</button>
+</div>
+<div ng-if="token">
+	
+	<button ng-click="logout()">logout</button>
+</div>

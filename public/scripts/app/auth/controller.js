@@ -1,20 +1,30 @@
 authApp.controller('authController', authController);
 
 
-    function authController($auth) {
+    function authController($scope,$rootScope,$auth,$window) {
+        if($window.sessionStorage.token){
+            $rootScope.token=$window.sessionStorage.token;
+            $scope.token=$window.sessionStorage.token;
+        }
+        console.log($window.sessionStorage.token);
 
-        var vm = this;
-
-        vm.login = function() {
+        $scope.login = function() {
 
             var credentials = {
-                email: vm.email,
-                password: vm.password
+                email: $scope.email,
+                password: $scope.password
             }
 
             $auth.login(credentials).then(function(data) {
-                console.log("working");
+                $window.sessionStorage.token=data.data.token;
+                $rootScope.token=data.data.token;
+                $scope.token=data.data.token;
             });
+        }
+
+        $scope.logout = function() {
+            $scope.token=null;
+            $window.sessionStorage.clear();
         }
 
     }
