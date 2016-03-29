@@ -13,13 +13,17 @@
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-route.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-mocks.js')}}"></script>
     <script src="{{asset('scripts/app/lib/ng-infinite-scroll.min.js')}}"></script>
+    <script src="{{asset('scripts/app/lib/satellizer.min.js')}}"></script>
     <script src="{{asset('scripts/app/app.js')}}"></script>
+    <script src="{{asset('scripts/app/config.js')}}"></script>
     <script src="{{asset('scripts/app/posts/service.js')}}"></script>
     <script src="{{asset('scripts/app/posts/controller.js')}}"></script>
     <script src="{{asset('scripts/app/posts/directive.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/controller.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/directive.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/service.js')}}"></script>
+    <script src="{{asset('scripts/app/auth/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/auth/directive.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -34,7 +38,9 @@
 				гостю-тут будет просто инфа о сайте и так далее
 
 				вошедшему-будет инфа о пользователе
+				<auth></auth>
 			</div>
+
 		</div>
 		<div class="posts" >
 
