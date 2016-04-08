@@ -21,9 +21,12 @@
     <script src="{{asset('scripts/app/posts/directive.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/controller.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/directive.js')}}"></script>
+<<<<<<< HEAD
     <script src="{{asset('scripts/app/modalPost/service.js')}}"></script>
     <script src="{{asset('scripts/app/auth/controller.js')}}"></script>
     <script src="{{asset('scripts/app/auth/directive.js')}}"></script>
+=======
+>>>>>>> parent of bee7e80... modal post full
 
 </head>
 <body ng-app="mainApp">
