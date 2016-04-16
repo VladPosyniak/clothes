@@ -26,6 +26,9 @@ Route::post('/getPost', ['uses' => 'PostsController@getPost', 'as' => 'getPost']
 |
 */
 
+
+
+
 Route::group(['middleware' => ['web']], function () {
     //
 });

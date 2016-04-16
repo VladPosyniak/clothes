@@ -1,24 +1,20 @@
-postsApp.controller('modalPostController',['$scope','postid','singlePost', modalPost]);
+postsApp.controller('modalPostController',['$scope','postid', modalPost]);
 
-function modalPost($scope,postid,singlePost){
+function modalPost($scope,postid){
 
 	$scope.postid=0;
 
 	$scope.$on('postidBroadcast', function() {
-        $scope.postid=postid.id;
-        if(postid.id!=0){
-        	singlePost(postid.id).success(function(data){
-        		$scope.post=data;
-        	});
-        }
+                console.log(postid.id);
+            });
 
+	$scope.$on('postidBroadcast', function() {
+        $scope.postid=postid.id;
    });
 
 	$scope.close=function(){
 		postid.selectid(0);
 	}
-
-
 
 
 }
