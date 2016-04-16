@@ -1,0 +1,459 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ECEDF1;
+    color: #717171;
+    font-family: Century Gothic;
+    font-size: 1.1em;
+}
+
+a {
+    color: #717171;
+}
+
+/*стили для блоков*/
+.wrapper {
+    display: block;
+    width: 1300px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.container {
+    width: 980px;
+    height: 900px;
+    margin-left: 320px;
+}
+
+.left-panel {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    -webkit-border-top-left-radius: 7px;
+    -moz-border-radius-topleft: 7px;
+    border-top-left-radius: 7px;
+    overflow: auto;
+    border: solid 1px #E0E0E0;
+}
+
+.posts {
+    width: 600px;
+    float: left;
+    margin-right: 20px;
+}
+
+.right-panel {
+    display: inline-block;
+    width: 350px;
+    border: solid 1px #E0E0E0;
+    -webkit-border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    border-top-right-radius: 7px;
+    background-color: white;
+}
+
+/*конец стилей для блоков*/
+
+/*стили модулей правой панели*/
+.search-module input {
+    display: block;
+    margin: 20px auto;
+    width: 85%;
+    padding: 8px;
+    border-radius: 7px;
+    border: 1.5px solid #E1E1E9;
+}
+
+.search-module input:focus {
+    outline: none;
+
+}
+
+.menu-module {
+    border-bottom: 3px solid #8AC249;
+}
+
+.menu-module span {
+    width: 100%;
+    height: 50px;
+}
+
+.menu-module span img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 0 14px;
+    line-height: 50px;
+    border-radius: 100%;
+}
+
+.menu-module span h2 {
+    line-height: 60px;
+}
+
+.menu-module ul li {
+    margin: 20px 40px;
+    list-style-type: none;
+    transition: border, padding 0.2s;
+}
+
+.menu-module ul li:hover {
+    border-left: 3px solid #F34235;
+    padding: 0 10px;
+}
+
+.menu-module ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.friends-module {
+    border-bottom: 3px solid #8AC249;
+}
+
+.friends-module h2 {
+    text-align: center;
+}
+
+.friends-module h2 a {
+    color: #A4A3A3;
+}
+
+.friends-module ul li {
+    list-style-type: none;
+    height: 50px;
+    display: block;
+    margin: 15px auto;
+}
+
+.friends-module ul {
+    margin: 0;
+    padding: 0;
+}
+
+.friends-module ul li a {
+    line-height: 50px;
+    text-decoration: none;
+    color: black;
+    transition: padding 0.2s;
+}
+
+.friends-module ul li a:hover {
+    padding: 0 5px;
+}
+
+.friends-module ul li img {
+    width: 50px;
+    height: 50px;
+    margin: 0 14px;
+    border-radius: 100%;
+    line-height: 50px;
+    float: left;
+}
+
+.exit-button button {
+    display: block;
+    margin: 10px auto;
+    font-size: 1.1em;
+    width: 90%;
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #F34235; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+    border: none;
+    cursor: pointer;
+    -webkit-transition: transform 0.2s;
+    -moz-transition: transform 0.2s;
+    -ms-transition: transform 0.2s;
+    -o-transition: transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.exit-button button:active{
+    transform: scale(0.9);
+}
+
+/* конец стилей модулей правой панели*/
+
+/*стили постов*/
+
+.create-post {
+    padding: 20px;
+    background-color: #E1E1E9;
+}
+
+.create-post input[name='nameOfPost'] {
+    display: block;
+    width: 95%;
+    padding: 7px;
+    font-size: 1.2em;
+    margin: 0 auto;
+    border: none;
+    background-color: #E1E1E9;
+}
+
+.create-post textarea {
+    display: block;
+    width: 95%;
+    max-width: 95%;
+    min-height: 150px;
+    max-height: 400px;
+    padding: 7px;
+    margin: 10px auto;
+    border: none;
+    font-size: 1.1em;
+    background-color: #E1E1E9;
+}
+
+.sendPost {
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #8AC249; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.Add {
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #F34235; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+
+.post {
+    border-bottom: 3px solid #8AC249;
+    border-left: solid 1px #E0E0E0;
+    border-right: solid 1px #E0E0E0;
+    border-top: solid 1px #E0E0E0;
+    background-color: white;
+    padding: 10px 20px;
+    margin: 15px 0;
+    transition: border 0.3s;
+
+}
+
+.post h2 {
+    width: 50%;
+    display: inline-block;
+}
+
+.post-likes {
+    width: 45%;
+    display: inline-block;
+    text-align: right;
+    padding: 0 10px;
+}
+
+.post-like {
+    font-size: 1.5em;
+    font-weight: 200;
+    color: #8AC249;
+    cursor: pointer;
+}
+
+.post-like:hover {
+    border-bottom: 2px solid #8AC249;
+}
+
+.post-dislike {
+    font-weight: 200;
+    font-size: 1.5em;
+    color: #F34235;
+    cursor: pointer;
+}
+
+.post-dislike:hover {
+    border-bottom: 2px solid #F34235;
+}
+
+.post:hover {
+    border-bottom: 3px solid #F34235;
+}
+
+.post img {
+    max-width: 100%;
+    max-height: 400px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.post-information {
+    display: block;
+    width: 100%;
+}
+
+.post-tags {
+    width: 50%;
+    display: inline-block;
+}
+
+.post-tags a {
+    display: inline-block;
+    margin: 2px;
+    padding: 5px;
+    font-size: 0.9em;
+    background-color: #8AC249;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.post-tags a:hover {
+    background-color: #F34235;
+}
+
+.post-author-date {
+    text-align: right;
+    width: 45%;
+    display: inline-block;
+}
+
+.post-date {
+    margin: 0 5px;
+}
+
+.post-author {
+    margin: 0 5px;
+}
+
+.modalpost{
+    width:60%;
+    min-height:300px;
+    position:fixed;
+    top:10%;
+    left:20%;
+    z-index:12;
+    background-color:white;
+}
+
+.modalpsotinside{
+    position:relative;
+}
+
+.modalpostclose{
+    width:20px;
+    height:20px;
+    background: black;
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+
+.blackscreen{
+    z-index:11;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:black;
+    opacity: 0.2;
+}
+
+/* конец стилей постов*/
+
+/*стили для правой колонки*/
+
+.popular-module {
+    -webkit-border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    border-top-right-radius: 7px;
+    width: 100%;
+    border-bottom: 3px solid #F34235;
+    margin-bottom: 10px;
+}
+
+.popular-module h3 {
+    margin: 0;
+    padding: 20px;
+    border-bottom: solid 1px #E0E0E0;
+}
+
+.popular-module ul {
+    margin: 0;
+    padding: 0;
+}
+
+.popular-module ul li {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    border-bottom: solid 1px #E0E0E0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.popular-module li:hover {
+    padding-left: 15px;
+}
+
+.popular-module ul li a {
+    color: #717171;
+    text-decoration: none;
+}
+
+.popular-module-likes {
+    background-color: #E1E1E9;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 8px;
+
+}
+
+.categories-module {
+    border-bottom: 3px solid #F34235;
+}
+
+.categories {
+    padding: 10px;
+}
+
+.categories-module h3 {
+    margin: 0;
+    padding: 20px;
+    border-bottom: solid 1px #E0E0E0;
+}
+
+.categories a {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    background-color: #8AC249;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.categories a:hover {
+    background-color: #F34235;
+}
+
+/*конец стилей для правой колонки*/
