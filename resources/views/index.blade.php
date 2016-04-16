@@ -22,9 +22,12 @@
     <script src="{{asset('scripts/app/modalPost/controller.js')}}"></script>
     <script src="{{asset('scripts/app/modalPost/directive.js')}}"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script src="{{asset('scripts/app/modalPost/service.js')}}"></script>
     <script src="{{asset('scripts/app/auth/controller.js')}}"></script>
     <script src="{{asset('scripts/app/auth/directive.js')}}"></script>
+=======
+>>>>>>> parent of bee7e80... modal post full
 =======
 >>>>>>> parent of bee7e80... modal post full
 
