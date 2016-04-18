@@ -23,4 +23,24 @@ class PostsController extends Controller
         $data = json_encode($query);
         echo $data;
     }
+
+    public function check(Request $request)
+    {
+    
+    $credentials = $request->only('email', 'password');
+
+    if ($this->auth->attempt($credentials))
+    {
+        /*return (['msg' => 'Login Successfull'], 200) // 200 Status Code: Standard response for successful HTTP request
+          ->header('Content-Type', 'application/json');
+          */
+          return "true";
+    }
+
+    /*return response(['msg' => $this->getFailedLoginMessage()], 401) // 401 Status Code: Forbidden, needs authentication
+          ->header('Content-Type', 'application/json');
+*/
+          return "false";
+
+    }
 }

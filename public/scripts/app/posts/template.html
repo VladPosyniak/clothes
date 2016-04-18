@@ -13,15 +13,12 @@
 		<p ng-click="click(post.id)">{{post.content}}</p>
                 <div class="post-information">
                     <div class="post-tags">
-                        <a href="">яркое</a>
-                        <a href="">лето</a>
-                        <a href="">зима</a>
-                        <a href="">аксесуары</a>
-                        <a href="">необычное</a>
+                        <a ng-repeat="tag in post.taglist" href="">{{tag}}</a>
                     </div>
                     <div class="post-author-date">
                         <span class="post-author"><a href="">{{post.author}}</a></span>
-                        <span class="post-date">24.03.2016</span>
+                        <span class="post-date" >24.03.2016</span>
+
                     </div>
                 </div>
 
