@@ -1,12 +1,31 @@
 <div ng-show="postid!=0">
 	<div class="modalpost" >
 		<div class="modalpostinside">
-			bla bla
+			<div class="post">
+				<h2>{{post.title}}</h2>
+			<div class="post-likes">
+	            <span class="post-dislike">-123</span>
+	            <span class="post-like">+543</span>
+	        </div>
 
-			{{post.content}}
-			<div class="modalpostclose" ng-click="close()">x</div>
+			<img ng-src="{{post.images}}"/>
+
+				{{post.content}}
 
 
+				<div class="post-information">
+                    <div class="post-tags">
+                        <a ng-repeat="tag in post.taglist" href="">{{tag}}</a>
+                    </div>
+                    <div class="post-author-date">
+                        <span class="post-author"><a href="">{{post.author}}</a></span>
+                        <span class="post-date">24.03.2016</span>
+
+                    </div>
+                </div>
+
+				<div class="modalpostclose" ng-click="close()">x</div>
+			</div>
 		</div>
 	</div>
 

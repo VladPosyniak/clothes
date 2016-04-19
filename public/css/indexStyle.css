@@ -346,9 +346,14 @@ a {
     background-color:white;
 }
 
-.modalpsotinside{
+.modalpostinside{
     position:relative;
 }
+
+.modalpostinside .post{
+    border:none;
+}
+
 
 .modalpostclose{
     width:20px;
