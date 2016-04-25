@@ -14,9 +14,16 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->bigInteger('rating');
+            $table->string('title', 30);
+            $table->string('author');
+            $table->string('privacy')->default('public');
             $table->string('title-slag')->unique();
             $table->text('content');
+            $table->text('tag');
+            $table->text('coordinates');
+            $table->text('shopLink');
+            $table->boolean('sex')->default(0);
             $table->text('images');
             $table->boolean('published');
             $table->timestamps();
