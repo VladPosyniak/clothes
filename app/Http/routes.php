@@ -35,11 +35,10 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
-Route::group(['prefix' => 'api'], function()
-{
-    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
-    Route::post('authenticate', 'AuthenticateController@authenticate');
-});
+    Route::resource('authenticate', 'Authenticate', ['only' => ['index']]);
+    Route::post('authenticate/unlink', 'Authenticate@unlink');
+    Route::post('authenticate/auth', 'Authenticate@authenticate');
+    Route::post('authenticate/google', 'Authenticate@google');
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();

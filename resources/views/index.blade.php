@@ -24,10 +24,12 @@
     <script src="{{asset('scripts/app/modalPost/service.js')}}"></script>
     <script src="{{asset('scripts/app/auth/controller.js')}}"></script>
     <script src="{{asset('scripts/app/auth/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/auth/config.js')}}"></script>
     <script src="{{asset('scripts/app/switcher/directive.js')}}"></script>
     <script src="{{asset('scripts/app/sub/comments/directive.js')}}"></script>
     <script src="{{asset('scripts/app/sub/messages/directive.js')}}"></script>
     <script src="{{asset('scripts/app/sub/subscriptions/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/auth/service.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -105,6 +107,8 @@
 
         <div class="popular-module">
                <auth></auth>
+
+               
             </div>
 
             <div class="popular-module">

@@ -8,8 +8,15 @@
 	</div>
 
 	<button ng-click="login()">Submit</button>
+
+
+	<button ng-click="authenticate('google')">Sign in with Google</button>
+	
 </div>
 <div ng-if="token">
 	
 	<button ng-click="logout()">logout</button>
+
+	<button ng-click="unlink('google')">unlink google</button>
 </div>
+
