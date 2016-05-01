@@ -1,4 +1,4 @@
-postsApp.directive('auth',function(){
+authApp.directive('auth',function(){
     return {
         resrtict: "E",
         scope: {

@@ -1,10 +1,10 @@
 authApp.config(function($authProvider) {
 
 
-$authProvider.loginUrl = '/authenticate/auth';
+$authProvider.loginUrl = 'api/authenticate/auth';
 
 $authProvider.google({
-  url: '/authenticate/google',
+  url: 'api/authenticate/google',
   name: "google",
   authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
   requiredUrlParams: ['scope'],

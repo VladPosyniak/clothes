@@ -12,6 +12,7 @@
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-route.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-mocks.js')}}"></script>
+    <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-animate.js')}}"></script>
     <script src="{{asset('scripts/app/lib/ng-infinite-scroll.min.js')}}"></script>
     <script src="{{asset('scripts/app/lib/satellizer.min.js')}}"></script>
     <script src="{{asset('scripts/app/app.js')}}"></script>
@@ -30,6 +31,11 @@
     <script src="{{asset('scripts/app/sub/messages/directive.js')}}"></script>
     <script src="{{asset('scripts/app/sub/subscriptions/directive.js')}}"></script>
     <script src="{{asset('scripts/app/auth/service.js')}}"></script>
+    <script src="{{asset('scripts/app/profile/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/profile/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/left/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/left/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/left/service.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -43,38 +49,10 @@
 </div>
     <div class="left-panel">
         <div class="search-module">
-            <input type="text" placeholder="search">
+         <input type="text" placeholder="search">
         </div>
-
-        <div class="menu-module">
-            <span>
-                <img src="https://pp.vk.me/c624117/v624117735/428dd/9g5-B8iHzpM.jpg" alt="">
-                <h2>Vlad Posyniak</h2>
-            </span>
-
-            <switcher></switcher>
-            
-        </div>
-
-        <div class="friends-module">
-            <h2><a href="#">Friends:</a></h2>
-            <ul>
-                <li><img src="https://pp.vk.me/c630329/v630329369/278e3/F1UZSDku2SU.jpg" alt=""><a href="#">Anton
-                    Rytov</a></li>
-                <li><img src="https://pp.vk.me/c630329/v630329369/278e3/F1UZSDku2SU.jpg" alt=""><a href="#">Anton
-                    Rytov</a></li>
-                <li><img src="https://pp.vk.me/c630329/v630329369/278e3/F1UZSDku2SU.jpg" alt=""><a href="#">Anton
-                    Rytov</a></li>
-                <li><img src="https://pp.vk.me/c630329/v630329369/278e3/F1UZSDku2SU.jpg" alt=""><a href="#">Anton
-                    Rytov</a></li>
-                <li><img src="https://pp.vk.me/c630329/v630329369/278e3/F1UZSDku2SU.jpg" alt=""><a href="#">Anton
-                    Rytov</a></li>
-            </ul>
-        </div>
-
-        <div class="exit-button">
-            <button>logout</button>
-        </div>
+        <left></left>
+        
     </div>
 
     <div class="container">
@@ -106,8 +84,6 @@
         <div class="right-panel">
 
         <div class="popular-module">
-               <auth></auth>
-
                
             </div>
 

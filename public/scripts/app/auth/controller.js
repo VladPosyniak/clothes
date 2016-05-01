@@ -1,7 +1,7 @@
-authApp.controller('authController',['$scope','$rootScope','$auth','$window','unlink', authController]);
+authApp.controller('authController',['$scope','$rootScope','$auth','$window','unlink','leftToken', authController]);
 
 
-    function authController($scope,$rootScope,$auth,$window,unlink) {
+    function authController($scope,$rootScope,$auth,$window,unlink,leftToken) {
         $auth.setStorageType('sessionStorage');
 
 
@@ -21,6 +21,7 @@ authApp.controller('authController',['$scope','$rootScope','$auth','$window','un
             $auth.login(credentials).then(function(data) {
                 $rootScope.token=data.data.token;
                 $scope.token=data.data.token;
+                leftToken.broadcast();
             });
         }
 
@@ -29,21 +30,15 @@ authApp.controller('authController',['$scope','$rootScope','$auth','$window','un
 
             $rootScope.token=response.data.token;
             $scope.token=response.data.token;
+            leftToken.selectid(response.data.token);
             console.log(response);
+            leftToken.broadcast();
             });
 
         }
 
-        $scope.logout = function() {
-            $scope.token=null;
-            $window.sessionStorage.clear();
-        }
-
-        $scope.unlink= function(name) {
-            unlink(name, $scope.token).success(function(response){
-                console.log(response.status);
-            });
-        }
+       
+        
 
     }
 

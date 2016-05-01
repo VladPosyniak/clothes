@@ -12,9 +12,13 @@
 */
 
 Route::get('/', ['uses' => 'IndexController@index', 'as' => 'home']);
-Route::get('/getPosts', ['uses' => 'PostsController@getPosts', 'as' => 'getPosts']);
-Route::post('/getPost', ['uses' => 'PostsController@getPost', 'as' => 'getPost']);
-Route::get('/check', ['uses' => 'PostsController@check', 'as' => 'getPost']);
+Route::get('post', ['uses' => 'IndexController@index', 'as' => 'home']);
+Route::get('user', ['uses' => 'IndexController@index', 'as' => 'home']);
+Route::get('auth', ['uses' => 'IndexController@index', 'as' => 'home']);
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,17 +32,27 @@ Route::get('/check', ['uses' => 'PostsController@check', 'as' => 'getPost']);
 */
 
 
-
-
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+Route::group(['prefix' => 'api'], function () {
 
 
     Route::resource('authenticate', 'Authenticate', ['only' => ['index']]);
     Route::post('authenticate/unlink', 'Authenticate@unlink');
     Route::post('authenticate/auth', 'Authenticate@authenticate');
     Route::post('authenticate/google', 'Authenticate@google');
+
+    Route::get('/getPosts', ['uses' => 'PostsController@getPosts', 'as' => 'getPosts']);
+Route::post('/getPost', ['uses' => 'PostsController@getPost', 'as' => 'getPost']);
+Route::get('/check', ['uses' => 'PostsController@check', 'as' => 'getPost']);
+
+
+
+});
+
+
+
+
+
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();

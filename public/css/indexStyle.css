@@ -11,6 +11,7 @@ a {
     color: #717171;
 }
 
+
 /*стили для блоков*/
 .wrapper {
     display: block;
@@ -56,6 +57,19 @@ a {
 /*конец стилей для блоков*/
 
 /*стили модулей правой панели*/
+
+
+.left-panel input {
+    display: block;
+    margin: 20px auto;
+    width: 85%;
+    padding: 8px;
+    border-radius: 7px;
+    border: 1.5px solid #E1E1E9;
+}
+
+
+
 .search-module input {
     display: block;
     margin: 20px auto;
@@ -334,6 +348,15 @@ a {
 
 .post-author {
     margin: 0 5px;
+}
+
+.post.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+.post.ng-enter-active {
+    opacity: 1;
 }
 
 .modalpost{
