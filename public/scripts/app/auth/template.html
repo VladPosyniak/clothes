@@ -1,12 +1,30 @@
-<div>
-		<input type="email" placeholder="Email" ng-model="email">
+	<div class='exit-button'>
+
+	<button ng-click='authVis()'>Войти</button>
+
 	</div>
 
-	<div>
-		<input type="password" placeholder="Password" ng-model="password">
+
+<div ng-if='visible'>
+	<div class='auth' >
+
+		<div>
+			<input type="email" placeholder="Email" ng-model="email">
+		</div>
+
+		<div>
+			<input type="password" placeholder="Password" ng-model="password">
+		</div>
+
+		<div class='exit-button'>
+			<button ng-click="login()" >Submit</button>
+		</div>
+
+		<div class='exit-button google'>
+			<button ng-click="authenticate('google')">Sign in with Google</button>
+		</div>
+
 	</div>
 
-	<button ng-click="login()">Submit</button>
-
-
-	<button ng-click="authenticate('google')">Sign in with Google</button>
+	<div class="blackscreen" ng-click="close()"></div>
+</div>

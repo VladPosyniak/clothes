@@ -398,6 +398,23 @@ a {
     opacity: 0.2;
 }
 
+
+
+.auth{
+    width:30%;
+    min-height:300px;
+    position:fixed;
+    top:10%;
+    left:35%;
+    z-index:12;
+    background-color:white;
+}
+
+.exit-button.google button {
+    background: #CA4532; /* фон кнопки */
+}
+
+
 /* конец стилей постов*/
 
 /*стили для правой колонки*/

@@ -3,6 +3,7 @@ authApp.controller('authController',['$scope','$rootScope','$auth','$window','un
 
     function authController($scope,$rootScope,$auth,$window,unlink,leftToken) {
         $auth.setStorageType('sessionStorage');
+        $scope.visible=false;
 
 
         if($window.sessionStorage.satellizer_token){
@@ -37,9 +38,13 @@ authApp.controller('authController',['$scope','$rootScope','$auth','$window','un
 
         }
 
-       
-        
+        $scope.authVis=function(){
+            $scope.visible=true;
+        }
 
+        $scope.close=function(){
+            $scope.visible=false;
+        }
     }
 
 
