@@ -36,6 +36,7 @@
     <script src="{{asset('scripts/app/left/directive.js')}}"></script>
     <script src="{{asset('scripts/app/left/controller.js')}}"></script>
     <script src="{{asset('scripts/app/left/service.js')}}"></script>
+    <script src="{{asset('scripts/app/profile/service.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">

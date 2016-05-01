@@ -14,8 +14,6 @@ main.controller('leftController',['$scope','$rootScope','$window','leftToken', l
         });
 
 
-        console.log($window.sessionStorage.token);
-
         $scope.unlink= function(name) {
             unlink(name, $scope.token).success(function(response){
                 console.log(response.status);

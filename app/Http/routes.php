@@ -41,9 +41,11 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('authenticate/google', 'Authenticate@google');
 
     Route::get('/getPosts', ['uses' => 'PostsController@getPosts', 'as' => 'getPosts']);
-Route::post('/getPost', ['uses' => 'PostsController@getPost', 'as' => 'getPost']);
-Route::get('/check', ['uses' => 'PostsController@check', 'as' => 'getPost']);
+	Route::post('/getPost', ['uses' => 'PostsController@getPost', 'as' => 'getPost']);
+	Route::get('/check', ['uses' => 'PostsController@check', 'as' => 'getPost']);
 
+	Route::post('getUser/getself', 'getUser@getself');
+	Route::post('getUser/id', 'getUser@getId');
 
 
 });
