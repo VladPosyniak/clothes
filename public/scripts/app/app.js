@@ -1,4 +1,4 @@
-var postsApp=angular.module('postsApp', ['infinite-scroll']);
+var postsApp=angular.module('postsApp', ['infinite-scroll','ngFileUpload']);
 var authApp=angular.module('authApp', ['satellizer']);
 
 var profileApp=angular.module('profileApp',['authApp']);

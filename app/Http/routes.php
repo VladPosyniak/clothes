@@ -20,6 +20,7 @@ Route::get('auth', ['uses' => 'IndexController@index', 'as' => 'home']);
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -46,6 +47,9 @@ Route::group(['prefix' => 'api'], function () {
 
 	Route::post('getUser/getself', 'getUser@getself');
 	Route::post('getUser/id', 'getUser@getId');
+
+
+	Route::post('createPost', 'createPost@create');
 
 
 });

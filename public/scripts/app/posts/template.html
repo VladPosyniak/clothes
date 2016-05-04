@@ -6,9 +6,9 @@
             <span class="post-like">+{{post.rating}}</span>
         </div>
 
-
-		<img ng-src="{{post.images}}"/>
-
+        <div ng-repeat="image in post.imagesArr track by $index" >
+		  <img ng-src="{{image}}"/>
+        </div>
 		<p ng-click="click(post.id)">{{post.content}}</p>
                 <div class="post-information">
                     <div class="post-tags">

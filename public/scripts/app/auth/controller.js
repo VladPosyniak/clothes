@@ -18,6 +18,7 @@ authApp.controller('authController',['$scope','$rootScope','$auth','$window','un
                 email: $scope.email,
                 password: $scope.password
             }
+            console.log(credentials);
 
             $auth.login(credentials).then(function(data) {
                 $rootScope.token=data.data.token;

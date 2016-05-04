@@ -8,13 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<script src="{{asset('scripts/app/lib/jquery-2.2.1.min.js')}}"></script>
+    <script src="{{asset('scripts/app/lib/jquery-2.2.1.min.js')}}"></script>
+  
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-route.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-mocks.js')}}"></script>
     <script src="{{asset('scripts/app/lib/angular-1.5.0-rc.0/angular-animate.js')}}"></script>
+
     <script src="{{asset('scripts/app/lib/ng-infinite-scroll.min.js')}}"></script>
     <script src="{{asset('scripts/app/lib/satellizer.min.js')}}"></script>
+    <script src="{{asset('scripts/app/lib/ng-file-upload.min.js')}}"></script>
+    <script src="{{asset('scripts/app/lib/ng-file-upload-shim.min.js')}}"></script>
+    
+
+
     <script src="{{asset('scripts/app/app.js')}}"></script>
     <script src="{{asset('scripts/app/config.js')}}"></script>
     <script src="{{asset('scripts/app/posts/service.js')}}"></script>
@@ -37,6 +44,9 @@
     <script src="{{asset('scripts/app/left/controller.js')}}"></script>
     <script src="{{asset('scripts/app/left/service.js')}}"></script>
     <script src="{{asset('scripts/app/profile/service.js')}}"></script>
+    <script src="{{asset('scripts/app/create/service.js')}}"></script>
+    <script src="{{asset('scripts/app/create/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/create/controller.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -59,14 +69,8 @@
     <div class="container">
     <div id="main_activity">
         <div class="posts">
-            <div class="create-post">
-                <input type="text" name="nameOfPost" required placeholder="название">
-                <textarea name="" id="">описание</textarea>
-                <button class="Add">добавить фотографию</button>
-                <button class="Add">выбрать категории</button>
-                <button class="sendPost">опубликовать</button>
-            </div>
 
+            <createPost></createPost>
             <modalpost></modalpost>
             <posts></posts>
 
