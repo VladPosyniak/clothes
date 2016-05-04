@@ -70,11 +70,11 @@ class createPost extends Controller
 	 		$image =  $request->file('file');
 
 	        $validator = Validator::make([$image], ['image' => 'required|mimes:jpeg,jpg,bmp,png']);
-/*
+
 	        if ($validator->fails()) {
 	            return response()->json(['message' => var_dump($image), 'code' => 400]);
 	        }
-	        */
+	        
 
 	        if(!$image->move($destinationPath, $image->getClientOriginalName())) {
 	            return response()->json(['message' => 'Error saving the file.', 'code' => 400]);
@@ -89,12 +89,10 @@ class createPost extends Controller
 			$image =  $request->file('file');
 	        $validator = Validator::make([$image], ['image' => 'required|mimes:jpeg,jpg,bmp,png']);
 
-
-/*
 	        if ($validator->fails()) {
 	            return response()->json(['message' => var_dump($image), 'code' => 400]);
 	        }
-	        */
+	        
 	        
 	        if(!$image->move($destinationPath, $image->getClientOriginalName())) {
 	            return response()->json(['message' => 'Error saving the file.', 'code' => 400]);
