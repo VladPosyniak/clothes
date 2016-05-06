@@ -51,6 +51,8 @@ Route::group(['prefix' => 'api'], function () {
 
 	Route::post('createPost', 'createPost@create');
 
+	Route::post('like', 'likeController@like');
+	Route::post('dislike', 'likeController@dislike');
 
 });
 
