@@ -3,9 +3,9 @@
 	<div class="post" ng-repeat="post in posts track by $index" >
 		<h2 ng-click="click(post.id)">{{post.title}}</h2>
 		<div class="post-likes">
-            <span class="post-like" ng-click='like()'>-</span>
+            <span class="post-like" ng-click='dislike(post.id)' style='color:red;border-color:red;'>-</span>
             <span class="post-like">+{{post.rating}}</span>
-            <span class="post-like" ng-click='dislike()' color='red'>+</span>
+            <span class="post-like" ng-click='like(post.id)'>+</span>
         </div>
 
         <div ng-repeat="image in post.imagesArr track by $index" >

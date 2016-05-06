@@ -43,3 +43,27 @@ postsApp.factory('getUserById',['$http',function($http){
 ]);
 
 
+
+postsApp.factory('like',['$http',function($http){
+	return function (id,token) {
+	    return $http.post("api/like",{idpost:id,token:token})
+	        .then(function (response) {
+	            var json=response.data;
+	            return json;
+	        });
+	}
+}
+]);
+
+postsApp.factory('dislike',['$http',function($http){
+	return function (id,token) {
+	    return $http.post("api/dislike",{idpost:id,token:token})
+	        .then(function (response) {
+	            var json=response.data;
+	            return json;
+	        });
+	}
+}
+]);
+
+

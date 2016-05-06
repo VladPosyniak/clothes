@@ -1,6 +1,8 @@
-postsApp.controller('postsController',['$rootScope','$scope','getPosts','postid','getUserById', posts]);
+postsApp.controller('postsController',['$rootScope','$scope','getPosts','postid','getUserById','like','dislike','$window', posts]);
 
-function posts($rootScope,$scope,getPosts,postid,getUserById){
+function posts($rootScope,$scope,getPosts,postid,getUserById,like,dislike,$window){
+	 
+
 	$scope.posts =[];
 	$scope.getNextPosts=function (){
 		getPosts.then(function (data) {
@@ -34,4 +36,23 @@ function posts($rootScope,$scope,getPosts,postid,getUserById){
    		postid.selectid(index);
    }
 
+	$scope.like=function(id){
+		if($window.sessionStorage.satellizer_token){
+            var token=$window.sessionStorage.satellizer_token;
+     
+	   		like(id,token).then(function(json){
+					   console.log(json);
+			}); 
+   		}
+   }
+
+   $scope.dislike=function(id){
+		if($window.sessionStorage.satellizer_token){
+            var token=$window.sessionStorage.satellizer_token;
+     
+	   		dislike(id,token).then(function(json){
+					   console.log(json);
+			}); 
+   		}
+   }
 }

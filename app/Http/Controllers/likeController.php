@@ -44,7 +44,7 @@ class likeController extends Controller
     }
 
 
-     protected function user(Request $request)
+     protected function user($request)
     {   
 
         $ip=$request->ip();
@@ -56,6 +56,7 @@ class likeController extends Controller
         $token=(array) JWT::decode($request['token'], Config::get('app.token_secret'), array('HS256'));
         $user = User::find($token['sub']);
 
+        return $user;
 
     }
 
@@ -63,23 +64,23 @@ class likeController extends Controller
 
     	$user=$this->user($request);
 
-    	$post = PostModel::find($request['idpost']);
+    	$post = PostsModel::find($request['idpost']);
     	$likes=$user->plus_ids;
-    	$dislikes=split(',',$user->minus_ids);
+    	$dislikes= explode(',',$user->minus_ids);
 
 
     	if(!$post){
     			return response()->json(array('idpost' => "Invalid id of post"));
     	}
 
-	    if(array_search($request['idpost'],split(',',$likes))){
+	    if(array_search($request['idpost'], explode(',',$likes))!== False){
 	    	return response()->json(array('like' => "cant be repeated"));
 	    }
 
-	    if(array_search($request['idpost'],$dislikes))){
+	    if(array_search($request['idpost'],$dislikes)!== False){
 	    	unset($dislikes[array_search($request['idpost'],$dislikes)]);
 	    	$user->minus_ids=implode(",", $dislikes);
-	    	$rating=intval ($post->rating)+1;
+	    	$rating=intval($post->rating)+1;
 	    	$post->rating=$rating;
 
 	    	$post->save();
@@ -96,29 +97,30 @@ class likeController extends Controller
     	$post->save();
     	$user->save();
 
-    	return response()->json(array('like' => "done"));
+    	return response()->json(array('dislike' => "done"));
     }
 
     public function dislike(Request $request){
 
     	$user=$this->user($request);
 
-    	$post = PostModel::find($request['idpost']);
+    	$post = PostsModel::find($request['idpost']);
     	$dislikes=$user->minus_ids;
-    	$likes=split(',',$user->plus_ids);
+    	$likes= explode(',',$user->plus_ids);
 
 
     	if(!$post){
     			return response()->json(array('idpost' => "Invalid id of post"));
     	}
 
-	    if(array_search($request['idpost'],split(',',$dislikes))){
+	    if(array_search($request['idpost'], explode(',',$dislikes))!== False){
 	    	return response()->json(array('dislike' => "cant be repeated"));
 	    }
 
-	    if(array_search($request['idpost'],$likes))){
+	    if(array_search($request['idpost'],$likes)!== False){
 	    	unset($likes[array_search($request['idpost'],$likes)]);
 	    	$user->plus_ids=implode(",", $likes);
+	    	
 	    	$rating=intval ($post->rating)-1;
 	    	$post->rating=$rating;
 
