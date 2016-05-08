@@ -72,7 +72,7 @@ class createPost extends Controller
 	        $validator = Validator::make([$image], ['image' => 'required|mimes:jpeg,jpg,bmp,png']);
 
 	        if ($validator->fails()) {
-	            return response()->json(['message' =>$validator->errors(), 'code' => 400]);
+	            //return response()->json(['message' =>$validator->errors(), 'code' => 400]);
 	        }
 	        
 
@@ -90,7 +90,7 @@ class createPost extends Controller
 	        $validator = Validator::make([$image], ['image' => 'required|mimes:jpeg,jpg,bmp,png']);
 
 	        if ($validator->fails()) {
-	            return response()->json(['message' => $validator->errors(), 'code' => 400]);
+	            //return response()->json(['message' => $validator->errors(), 'code' => 400]);
 	        }
 	        
 	        
