@@ -6,17 +6,106 @@ use Illuminate\Http\Request;
 use App\Models\PostsModel;
 use App\Http\Requests;
 
+use Hash;
+use Config;
+use Validator;
+use Firebase\JWT\JWT;
+use GuzzleHttp;
+use GuzzleHttp\Subscriber\Oauth\Oauth1;
+use App\User;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
+
+
 class PostsController extends Controller
 {
+
+ protected function checkToken($token,$ip)
+    {
+        if(!preg_match("/^[a-zA-Z0-9\-_]+?\.[a-zA-Z0-9\-_]+?\.([a-zA-Z0-9\-_]+)?$/",$token)){
+            return false;
+        }
+
+        try{
+            $token=(array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+
+        }catch(JWTException $e){
+            return false;
+        }
+
+        $user = User::find($token['sub']);
+        if (!$user | $ip!=$token['ip'])
+        {
+            return false;
+        }
+        return true;
+
+    }
+
+
+     protected function user($request)
+    {   
+
+        $ip=$request->ip();
+
+        if(!$this->checkToken($request['token'],$ip)){
+            return response()->json(array('token' => "Invalid Token"));
+        }
+
+        $token=(array) JWT::decode($request['token'], Config::get('app.token_secret'), array('HS256'));
+        $user = User::find($token['sub']);
+
+        return $user;
+
+    }
+
+
+
     public function index(){
         return '<h1>не, сюда пока рано ходить</h1>';
     }
 
-    public function getPosts(){
-        $query = PostsModel::all();
-        $data = json_encode($query);
-        echo $data;
+    public function getPostsSub(Request $request){
+        $limit=4;
+        $user=$this->user($request);
+
+        $subs=explode(',',$user->sub);
+        $pack=$request['pack'];
+
+        $offset=$limit*$pack;
+
+        $query = PostsModel::whereIn('author',$subs)->orderBy('updated_at','DESC')->limit($limit)->offset($offset)->get();
+
+        return json_encode($query);
+
     }
+
+
+
+
+    public function getPostsBest(Request $request){
+            $limit=4;
+            $pack=$request['pack'];
+            $offset=$limit*$pack;
+            $interval=intval($request['interval']);
+            if($interval==0){
+                $query = PostsModel::whereRaw('created_at >= CURDATE()')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
+            }
+            else if($interval==1){
+                $query = PostsModel::whereRaw('created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY)')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
+            }
+            else if($interval==2){
+                $query = PostsModel::whereRaw('created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
+            }
+            else{
+                return response()->json(array('interval' => "Invalid interval"));
+            }
+
+
+            return json_encode($query);
+
+        }
+
     public function getPost(Request $request){
         $id = $request->input('PostId');
         $query = PostsModel::find($id);

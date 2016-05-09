@@ -1,4 +1,9 @@
-
+<div ng-if='type=="best"'>
+Лучшее за:
+<div ng-click='bestof(0)'>День</div>
+<div ng-click='bestof(1)'>Неделю</div>
+<div ng-click='bestof(2)'>Месяц</div>
+</div>
 <div infinite-scroll="getNextPosts()" infinite-scroll-distance="0">
 	<div class="post" ng-repeat="post in posts track by $index" >
 		<h2 ng-click="click(post.id)">{{post.title}}</h2>

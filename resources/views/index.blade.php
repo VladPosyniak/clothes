@@ -35,7 +35,7 @@
     <script src="{{asset('scripts/app/auth/config.js')}}"></script>
     <script src="{{asset('scripts/app/switcher/directive.js')}}"></script>
     <script src="{{asset('scripts/app/sub/comments/directive.js')}}"></script>
-    <script src="{{asset('scripts/app/sub/messages/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/sub/best/directive.js')}}"></script>
     <script src="{{asset('scripts/app/sub/subscriptions/directive.js')}}"></script>
     <script src="{{asset('scripts/app/auth/service.js')}}"></script>
     <script src="{{asset('scripts/app/profile/directive.js')}}"></script>
@@ -72,7 +72,7 @@
 
             <createPost></createPost>
             <modalpost></modalpost>
-            <posts></posts>
+            <posts poststype='sub'></posts>
 
         </div>
     </div>

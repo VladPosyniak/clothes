@@ -58,10 +58,8 @@ class getUser extends Controller
         return response()->json(array('name'=>$user->name,
         							  'email'=> $user->email,
         							  'rating'=> $user->rating,
-        							  'new_messages'=> $user->new_messages,
         							  'new_comments'=> $user->new_comments,
-        							  'avatar'=> $user->avatar,
-                                      'friends'=> $user->friends
+        							  'avatar'=> $user->avatar
         							  ));
     }
 

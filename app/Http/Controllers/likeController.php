@@ -97,7 +97,7 @@ class likeController extends Controller
     	$post->save();
     	$user->save();
 
-    	return response()->json(array('dislike' => "done"));
+    	return response()->json(array('like' => "done"));
     }
 
     public function dislike(Request $request){

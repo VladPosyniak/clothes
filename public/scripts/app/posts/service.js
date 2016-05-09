@@ -1,10 +1,12 @@
 postsApp.factory('getPosts',['$http',function($http){
-    return $http.get("api/getPosts")
-        .then(function (response) {
-            var json=response.data;
-            return json;
-        });
-}
+    return function(pack,token){
+	    return $http.post("api/getPostsSub",{pack:pack,token:token})
+	        .then(function (response) {
+	            var json=response.data;
+	            return json;
+	        });
+		}
+	}
 ]);
 
 
@@ -28,6 +30,21 @@ postsApp.factory('postid',function($rootScope){
    
 }
 );
+
+
+
+postsApp.factory('getBestPosts',['$http',function($http){
+    return function(pack,interval){
+	    return $http.post("api/getPostsBest",{pack:pack,interval:interval})
+	        .then(function (response) {
+	            var json=response.data;
+	            return json;
+	        });
+		}
+	}
+]);
+
+
 
 
 

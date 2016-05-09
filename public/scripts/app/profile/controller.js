@@ -13,9 +13,8 @@ profileApp.controller('profileController',['$scope','$window','leftToken','getSe
 		$scope.name=data.name;
 		$scope.rating=data.rating;
 		$scope.avatar=data.avatar;
-		$scope.new_m=data.new_messages;
 		$scope.new_c=data.new_comments;
-
+/*
 		if(data.friends){
 
 		
@@ -31,7 +30,7 @@ profileApp.controller('profileController',['$scope','$window','leftToken','getSe
 			}
 
 		}
-
+*/
 
     });       
 
