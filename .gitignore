@@ -5,3 +5,5 @@
 Homestead.yaml
 Homestead.json
 .idea
+composer.phar
+composer.lock
