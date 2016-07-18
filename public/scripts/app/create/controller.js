@@ -2,19 +2,27 @@ postsApp.controller('createController',['$scope','create','Upload','$window','$t
 
 
     function createController($scope,create,Upload,$window, $timeout) {
+        $scope.tags='';
+        var tags=[];
+
+        $scope.add_tag=function(){
+            if( $scope.tags===''){
+                $scope.tags+="Теги: "+$scope.tag;
+            }else{
+                $scope.tags+=','+$scope.tag;
+            }
+            tags.push($scope.tag);
+            $scope.tag='';
+            console.log(tags);
+        }
+
+
          
         $scope.submit=function(){
             if($window.sessionStorage.satellizer_token){
                 var token=$window.sessionStorage.satellizer_token;
             }
-         
 
-
-            /*create($scope.title,$scope.content,token).then(function(data) {
-                   console.log(data);
-                });
-
-                */
             $scope.upload($scope.file,$scope.title,$scope.content,token);
 
         }
@@ -26,6 +34,8 @@ postsApp.controller('createController',['$scope','create','Upload','$window','$t
             if (file && file.length) {
                 var status=file.length-1;
                 var fail=file.length+5;
+                tags=JSON.stringify(tags);
+                console.log(tags);
            
                 //for (var i = 0; i < file.length; i++) {
                     run(status,fail);
@@ -37,7 +47,7 @@ postsApp.controller('createController',['$scope','create','Upload','$window','$t
                         file: file[status],
                         sendFieldsAs: 'form',
                         fields: {
-                            title:title,content:content,token:token,random_id:random_id
+                            title:title,content:content,tags:tags,token:token,random_id:random_id
                         }}).then( function (response) {
 
                             console.log(response.data);
@@ -52,6 +62,7 @@ postsApp.controller('createController',['$scope','create','Upload','$window','$t
                                 $scope.content='';
                                 $scope.title='';
                                 $scope.file=null;
+                                $scope.tags='';
                              }else{
                                 console.log(fail);
                                 fail-=1;

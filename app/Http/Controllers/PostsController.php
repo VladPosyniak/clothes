@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PostsModel;
 use App\Http\Requests;
-
+use App\Tags;
 use Hash;
 use Config;
 use Validator;
@@ -74,7 +74,7 @@ class PostsController extends Controller
 
         $offset=$limit*$pack;
 
-        $query = PostsModel::whereIn('author',$subs)->orderBy('updated_at','DESC')->limit($limit)->offset($offset)->get();
+        $query = PostsModel::select('posts.*','users.name','users.avatar')->whereIn('author',$subs)->join('users', 'posts.author', '=', 'users.id')->orderBy('posts.updated_at','DESC')->limit($limit)->offset($offset)->get();
 
         return json_encode($query);
 
@@ -89,13 +89,13 @@ class PostsController extends Controller
             $offset=$limit*$pack;
             $interval=intval($request['interval']);
             if($interval==0){
-                $query = PostsModel::whereRaw('created_at >= CURDATE()')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
+                $query = PostsModel::select('posts.*','users.name','users.avatar')->whereRaw('posts.created_at >= CURDATE()')->join('users', 'posts.author', '=', 'users.id')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
             }
             else if($interval==1){
-                $query = PostsModel::whereRaw('created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY)')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
+                $query = PostsModel::select('posts.*','users.name','users.avatar')->whereRaw('posts.created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY)')->join('users', 'posts.author', '=', 'users.id')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
             }
             else if($interval==2){
-                $query = PostsModel::whereRaw('created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
+                $query = PostsModel::select('posts.*','users.name','users.avatar')->whereRaw('posts.created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH)')->join('users', 'posts.author', '=', 'users.id')->orderBy('rating','DESC')->limit($limit)->offset($offset)->get();
             }
             else{
                 return response()->json(array('interval' => "Invalid interval"));
@@ -108,10 +108,35 @@ class PostsController extends Controller
 
     public function getPost(Request $request){
         $id = $request->input('PostId');
-        $query = PostsModel::find($id);
+        $query = PostsModel::select('posts.*','users.name','users.avatar')->join('users', 'posts.author', '=', 'users.id')->find($id);
         $data = json_encode($query);
-        echo $data;
+        return $data;
     }
+
+
+    public function getWinner(){
+        $query = PostsModel::select('posts.*','users.name','users.avatar')->whereRaw('posts.created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)')->join('users', 'posts.author', '=', 'users.id')->orderBy('rating','DESC')->limit(1)->get();
+        $data = json_encode($query);
+        return $data;
+    }
+
+
+
+    public function search(Request $request){
+        $limit=4;    
+        $pack=$request['pack'];
+        $offset=$limit*$pack;
+        $search=$request['search'];
+        if(!preg_match("/^([А-Яа-яA-Za-zыЫъЪёЁіІїЇ ]+)$/u",$search)){
+            return response()->json(array('search' => "Invalid search"));
+        }
+
+        $query = PostsModel::select('posts.*','users.name','users.avatar')->where('title', 'LIKE', '%'.$search.'%')->orWhere('tag', 'LIKE', '%'.$search.'%')->join('users', 'posts.author', '=', 'users.id')->orderBy('updated_at','DESC')->limit($limit)->offset($offset)->get();
+
+        return json_encode($query);
+
+    }
+
 
     public function check(Request $request)
     {
@@ -131,5 +156,10 @@ class PostsController extends Controller
 */
           return "false";
 
+    }
+
+    public function getTags(){
+        $tags=Tags::select('name')->orderBy('rating','DESC')->limit(14)->get();
+        return json_encode($tags);
     }
 }

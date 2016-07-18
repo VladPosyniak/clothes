@@ -1,12 +1,12 @@
-profileApp.controller('profileController',['$scope','$window','leftToken','getSelf','getUserById', profileController]);
+profileApp.controller('profileController',['$scope','$window','auth_update','getSelf','getUserById', profileController]);
 
 
 
- function profileController($scope,$window,leftToken,getSelf,getUserById) {
+ function profileController($scope,$window,auth_update,getSelf,getUserById) {
 	 $scope.logout = function() {
 	            $window.sessionStorage.clear();
 
-	            leftToken.broadcast();
+	            auth_update.broadcast();
 	        }
 
 	getSelf(window.sessionStorage['satellizer_token']).success(function(data){

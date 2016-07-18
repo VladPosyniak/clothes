@@ -1,4 +1,4 @@
-main.directive('switcher',function($compile){
+main.directive('switcher',function($compile,search,typeOfPosts){
         return {
             resrtict: "E",
             scope: {
@@ -6,9 +6,10 @@ main.directive('switcher',function($compile){
             templateUrl: 'scripts/app/switcher/template.html',
             //controller:'switcher',
             link: function($scope){
+                typeOfPosts.selectType('activity');
                 $(document).ready(function() {
                     $("ul.switcher li").click(function () {
-                        creat($(this).attr('id'),$scope,$compile);
+                        creat($(this).attr('id'),$scope,$compile,search,typeOfPosts);
                     });
                 },false);
             }
@@ -17,11 +18,18 @@ main.directive('switcher',function($compile){
 );
 
 
-function creat(object,$scope,$compile){
+function creat(object,$scope,$compile,search,typeOfPosts){
 
     var other=$('#sub_activity');
     var activ= $('#main_activity');
 
+
+if(search.search!==''&&search.search!==undefined){
+        search.selectsearch('');
+    }
+    
+    typeOfPosts.selectType(object);
+    /*
     if(object==="activity"){
         other.attr('hidden','hidden');
         activ.removeAttr('hidden');
@@ -43,5 +51,8 @@ function creat(object,$scope,$compile){
         else {
             element.removeAttr('hidden');
         }
+
+        
     }
+    */
 }

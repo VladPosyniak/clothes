@@ -207,7 +207,28 @@ a {
     margin: 0 auto;
     border: none;
     background-color: #E1E1E9;
+     border: 1.5px solid #d9d9e0;
 }
+
+.create-post input[name='tagOfPost'] {
+    float:left;
+    display: block;
+    width: 75%;
+    padding: 7px;
+    font-size: 0.9em;
+    margin: 0 auto;
+    border: none;
+    background-color: #E1E1E9;
+     border: 1.5px solid #d9d9e0;
+}
+
+.create-post button.Add.tag{
+    padding: 7px;
+    width: 20%;
+    float:right;
+
+}
+
 
 .create-post textarea {
     display: block;
@@ -220,6 +241,7 @@ a {
     border: none;
     font-size: 1.1em;
     background-color: #E1E1E9;
+     border: 1.5px solid #d9d9e0;
 }
 
 .sendPost {
@@ -414,6 +436,10 @@ a {
     background: #CA4532; /* фон кнопки */
 }
 
+.exit-button.instagram button{
+    background: #f03a5c; /* фон кнопки */
+}
+
 
 /* конец стилей постов*/
 
@@ -502,3 +528,191 @@ a {
 }
 
 /*конец стилей для правой колонки*/
+
+
+
+.central-content-top{
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding-top: 10px;
+    border: solid 1px #E0E0E0;
+}
+.central-content-top h1{
+    margin: 0;
+    padding: 10px 0;
+}
+.central-content-top .count-buttons {
+    width: 100%;
+    padding: 5px 0;
+    border-top: solid 1px #E0E0E0;
+}
+
+.central-content-top .count-button .button-count{
+    font-weight: 700;
+}
+
+.central-content-top .count-button{
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+/* The Modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content img{
+     max-width: 100%;
+    max-height: 400px;
+    margin: auto;
+    display: block;
+}
+
+/* The Close Button */
+.modal-close {
+    color: white;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+
+.modal .modal-body .comments{
+    width: 90%;
+
+    margin: auto;
+}
+
+.modal .modal-body .comments ul li{
+    list-style-type: none;
+}
+
+.modal .modal-body form .comments-area{
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    display: block;
+    margin: auto;
+
+}
+
+.modal .modal-body form input[type='submit']{
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #8AC249; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+.modal .modal-body form .add-content{
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #F34235; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+
+}
+
+
+.comment-footer ul{
+    margin: 0;
+    padding: 0;
+
+
+}
+.comment-footer ul li{
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 10px ;
+}
+
+
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@media all and (max-width: 1000px) {
+    .modal-content{
+        width: 80%;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .modal-content{
+        width: 90%;
+    }
+}

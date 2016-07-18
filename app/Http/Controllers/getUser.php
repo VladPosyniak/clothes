@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\PostsModel;
 
 use Hash;
 use Config;
@@ -64,20 +65,59 @@ class getUser extends Controller
     }
 
 
-     public function getId(Request $request)
+    public function getPhotos(Request $request)
+
+    {  
+
+        $ip=$request->ip();
+        
+        if(!$this->checkToken($request['token'],$ip)){
+            return response()->json(array('token' => "Invalid Token"));
+        }
+
+        $token=(array) JWT::decode($request['token'], Config::get('app.token_secret'), array('HS256'));
+
+        $limit=7;
+        $pack=$request['pack'];
+
+        $offset=$limit*$pack;
+
+
+      $query = PostsModel::where('author',$token['sub'])->orderBy('updated_at','DESC')->limit($limit)->offset($offset)->select('images')->get();
+
+      return json_encode($query);
+    }
+
+
+
+    public function profile(Request $request)
     {   
 
-     $user = User::find($request['id']);
-     if($user){
+        $ip=$request->ip();
 
-     	return response()->json(array('name'=>$user->name,
-        							  'avatar'=> $user->avatar
-        							  ));
+        if(!$this->checkToken($request['token'],$ip)){
+            return response()->json(array('token' => "Invalid Token"));
+        }
 
-     }else{
-     	return response()->json(array('id' => "Invalid"));
-     }
+        $token=(array) JWT::decode($request['token'], Config::get('app.token_secret'), array('HS256'));
+        $user = User::find($token['sub']);
 
+        $id=$request['id'];
+
+
+        if ( !is_numeric($id)) {
+                return response()->json(['message' =>'error of type id']);
+            }
+        return response()->json(array('name'=>$user->name,
+                                      'rating'=> $user->rating,
+                                      'avatar'=> $user->avatar,
+                                      'posts'=> $user->posts,
+                                      'subs'=> $user->subs,
+                                      'subs_self'=> $user->subs_self,
+                                      'photos'=> $user->photos,
+                                      'details'=> $user->details
+                                      ));
+                                      
     }
 
 }

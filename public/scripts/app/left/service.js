@@ -1,15 +1,22 @@
-authApp.factory('leftToken',function($rootScope){
+authApp.factory('auth_update',function($rootScope){
 	var token={};
 
 	token.token='';
+	token.id='';
 
-	token.selectid=function(token){
+	token.selectid=function(token,id){
 		this.token=token;
+		this.id=id;
+
+        $rootScope.id=data.id;
+        $rootScope.token=data.token;
+
+		console.log(id,token);
 		this.broadcast();
 	}
 
 	token.broadcast = function() {
-        $rootScope.$broadcast('leftTokenBroadcast');
+        $rootScope.$broadcast('auth_updateBroadcast');
 
     };
 

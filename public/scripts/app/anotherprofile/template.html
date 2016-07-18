@@ -1,0 +1,34 @@
+<div class="central-content-top">
+                <h1>{{data.name}}</h1>
+
+                <div class="about-profile">
+                    <p>{{data.details}}</p>
+                </div>
+                <div class="count-buttons">
+                    <a href="" class="count-button">
+                        <span class="button-count">{{data.photos}}</span>
+                        <br>
+                        <span class="button-text">фотографии</span>
+                    </a>
+                    <a href="" class="count-button">
+                        <span class="button-count">{{data.subs}}</span>
+                        <br>
+                        <span class="button-text">подписчики</span>
+                    </a>
+                    <a href="" class="count-button">
+                        <span class="button-count">{{data.subs_self}}</span>
+                        <br>
+                        <span class="button-text">подписки</span>
+                    </a>
+                    <a href="" class="count-button">
+                        <span class="button-count">{{data.posts}}</span>
+                        <br>
+                        <span class="button-text">публикации</span>
+                    </a>
+                </div>
+
+        <ul ng-repeat="image in photos track by $index" >
+          <li><img ng-src="{{image}}"/></li>
+        </ul>
+
+</div>

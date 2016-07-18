@@ -8,6 +8,8 @@ return [
 
 'google_secret' => "RT-JfTAMcoFaWHdP8F66j4ij",
 
+'instagram_secret' => "180d67244eac4a1eb683271f21425b1a",
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

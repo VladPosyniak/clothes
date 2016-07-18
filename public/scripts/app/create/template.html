@@ -2,11 +2,13 @@
 			<div ng-ig="visible">
                 <input type="text" name="nameOfPost" ng-model="title" required placeholder="Название">
                 <textarea name="" ng-model="content" id="" placeholder="Описание"></textarea>
-                
+                <input type="text" name="tagOfPost" ng-model="tag" required placeholder="Тег">
+                <button class="Add tag" ng-click='add_tag()'>Добавить</button>
+                <p class='post_tags'>{{tags}}</p>
+
 				<div ng-repeat="fil in file">
 	                <img ngf-src="fil" ngf-resize="{width: 50, height: 50, quality: 0.9}" />
                 </div>
-
 
                 <button class="Add" ngf-select ng-model="file" ngf-pattern="'image/*'"
     					ngf-accept="'image/*'" ngf-max-size="10MB"

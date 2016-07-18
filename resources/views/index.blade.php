@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
+    <base href="/">
     <link rel="stylesheet" href="{{asset('css/IndexStyle.css')}}">
     <link rel="stylesheet" href="{{asset('css/subStyle.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,6 +41,9 @@
     <script src="{{asset('scripts/app/auth/service.js')}}"></script>
     <script src="{{asset('scripts/app/profile/directive.js')}}"></script>
     <script src="{{asset('scripts/app/profile/controller.js')}}"></script>
+        <script src="{{asset('scripts/app/anotherprofile/directive.js')}}"></script>
+        <script src="{{asset('scripts/app/anotherprofile/service.js')}}"></script>
+    <script src="{{asset('scripts/app/anotherprofile/controller.js')}}"></script>
     <script src="{{asset('scripts/app/left/directive.js')}}"></script>
     <script src="{{asset('scripts/app/left/controller.js')}}"></script>
     <script src="{{asset('scripts/app/left/service.js')}}"></script>
@@ -47,6 +51,14 @@
     <script src="{{asset('scripts/app/create/service.js')}}"></script>
     <script src="{{asset('scripts/app/create/directive.js')}}"></script>
     <script src="{{asset('scripts/app/create/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/search/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/search/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/categories/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/categories/controller.js')}}"></script>
+    <script src="{{asset('scripts/app/categories/service.js')}}"></script>
+    <script src="{{asset('scripts/app/winner/service.js')}}"></script>
+    <script src="{{asset('scripts/app/winner/directive.js')}}"></script>
+    <script src="{{asset('scripts/app/winner/controller.js')}}"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -54,43 +66,36 @@
 
 <div id="auth">
 
-
-
-
 </div>
-    <div class="left-panel">
-        <div class="search-module">
-         <input type="text" placeholder="search">
-        </div>
+    <div class="left-panel ">
+    <search></search>
         <left></left>
         
     </div>
 
     <div class="container">
     <div id="main_activity">
-        <div class="posts">
 
+        <div class="posts">
+            <!--<anotherprofile></anotherprofile>-->
             <createPost></createPost>
             <modalpost></modalpost>
             <posts poststype='sub'></posts>
-
         </div>
     </div>
     
     <div class="posts">
         <div id="sub_activity">
-    </div>
+        </div>
     
-
-
-
     </div>    
 
         <div class="right-panel">
 
+
         <div class="popular-module">
-               
-            </div>
+            <winner></winner>   
+        </div>
 
             <div class="popular-module">
                 <h3>Popular today:</h3>
@@ -102,27 +107,7 @@
                 </ul>
             </div>
 
-
-            <div class="categories-module">
-                <h3>Categories:</h3>
-
-                <div class="categories">
-                    <a href="">кофты</a>
-                    <a href="">футболки</a>
-                    <a href="">куртки</a>
-                    <a href="">джинсы</a>
-                    <a href="">рубашки</a>
-                    <a href="">шорты</a>
-                    <a href="">шорты</a>
-                    <a href="">классика</a>
-                    <a href="">яркое</a>
-                    <a href="">лето</a>
-                    <a href="">зима</a>
-                    <a href="">аксесуары</a>
-                    <a href="">необычное</a>
-                    <a href="">брюки</a>
-                </div>
-            </div>
+            <categories></categories>
         </div>
     </div>
     <script src="scripts/other/jquery-min.js"></script>

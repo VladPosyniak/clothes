@@ -19,6 +19,19 @@ $authProvider.google({
 })
 
 
+$authProvider.instagram({
+  name: 'instagram',
+  url: 'api/authenticate/instagram',
+  authorizationEndpoint: 'https://api.instagram.com/oauth/authorize',
+  redirectUri: 'http://localhost/',
+  requiredUrlParams: ['scope'],
+  scope: ['basic'],
+  scopeDelimiter: '+',
+  clientId: '5db28eb986294edda144099b91e955b8',
+  type: '2.0'
+});
+
+
 });
 
 

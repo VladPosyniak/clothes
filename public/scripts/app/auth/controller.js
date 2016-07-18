@@ -1,7 +1,7 @@
-authApp.controller('authController',['$scope','$rootScope','$auth','$window','unlink','leftToken', authController]);
+authApp.controller('authController',['$scope','$auth','$window','unlink','auth_update', authController]);
 
 
-    function authController($scope,$rootScope,$auth,$window,unlink,leftToken) {
+    function authController($scope,$auth,$window,unlink,auth_update) {
         $auth.setStorageType('sessionStorage');
         $scope.visible=false;
 
@@ -18,23 +18,25 @@ authApp.controller('authController',['$scope','$rootScope','$auth','$window','un
                 email: $scope.email,
                 password: $scope.password
             }
-            console.log(credentials);
 
             $auth.login(credentials).then(function(data) {
-                $rootScope.token=data.data.token;
-                $scope.token=data.data.token;
-                leftToken.broadcast();
+                data=data.data;
+                
+                $scope.token=data.token;
+                $window.sessionStorage.id=data.id;
+                auth_update.selectid(data.token,data.id);
+                auth_update.broadcast();
             });
         }
 
         $scope.authenticate = function(provider) {
             $auth.authenticate(provider).then(function(response) {
-
-            $rootScope.token=response.data.token;
-            $scope.token=response.data.token;
-            leftToken.selectid(response.data.token);
             console.log(response);
-            leftToken.broadcast();
+
+            $scope.token=response.data.token;
+            $window.sessionStorage.id=response.data.id;
+            auth_update.selectid(response.data.token,response.data.id);
+            auth_update.broadcast();
             });
 
         }

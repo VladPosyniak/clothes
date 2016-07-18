@@ -1,34 +1,70 @@
 <div ng-show="postid!=0">
-	<div class="modalpost" >
-		<div class="modalpostinside">
-			<div class="post">
-				<h2>{{post.title}}</h2>
-			<div class="post-likes">
-	            <span class="post-dislike">-123</span>
-	            <span class="post-like">+543</span>
-	        </div>
 
-			<img ng-src="{{post.images}}"/>
-
-				{{post.content}}
-
-
-				<div class="post-information">
-                    <div class="post-tags">
+<div id="myModal" class="modal" ng-click="close()">
+    <!-- Modal content -->
+    <div class="modal-content"  ng-click="$event.stopPropagation()">
+        <div class="modal-header">
+            <h2>{{post.title}}</h2>
+            <span class="modal-close" ng-click="close()">×</span>
+        </div>
+        <div class="modal-body">
+            <div ng-repeat="image in post.imagesArr track by $index" >
+		  		<img ng-src="{{image}}"/>
+        	   </div>
+            <br>
+            <p>{{post.content}}</p>
+        </div>
+        <div class="modal-footer">
+            <div class="post-information">
+                <div class="post-tags">
                         <a ng-repeat="tag in post.taglist" href="">{{tag}}</a>
                     </div>
-                    <div class="post-author-date">
-                        <span class="post-author"><a href="">{{post.author}}</a></span>
-                        <span class="post-date">24.03.2016</span>
-
-                    </div>
+                <div class="post-author-date">
+                    <span class="post-author"><a href="">{{post.author}}</a></span>
+                    <span class="post-date">24.03.2016</span>
                 </div>
+            </div>
+        </div>
+        <div class="comments">
+                <hr/>
+                <div ></div>
+                <hr/>
+        </div>
 
-				<div class="modalpostclose" ng-click="close()">x</div>
-			</div>
-		</div>
-	</div>
 
-	<div class="blackscreen" ng-click="close()"></div>
+
+        <div class="comments">
+                <h3>Комментари:</h3>
+                <div ng-if='id'>
+                    <textarea ng-model='content' class="comments-area" cols="30" rows="5"></textarea>
+                    <input type="submit" ng-click='create_comment()' value="отправить">
+                    <button class="add-content">прикрепить изображение</button>
+                </div>
+                <ul>
+                    <li class="comment" ng-repeat="comment in comments">
+                        <h3><a href="">{{comment.name}}</a></h3>
+
+                        <p>{{comment.content}}</p>
+
+                        <div class="comment-footer">
+                            <ul>
+                                <li ng-if='id!=comment.author'><a href="">ответить</a></li>
+                                <li ng-if='id==comment.author'><a ng-click='delete_comment(comment.id_of_comment)' href="">удалить</a></li>
+                                <li>{{comment.date}}</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
 
 </div>
+
+

@@ -92,7 +92,7 @@ class Authenticate extends Controller
         // if no errors are encountered we can return a JWT
         $user = User::where('email', '=', $request['email']);
         $user = $user->first();
-        return response()->json(array('token' => $this->createToken($user,$ip)));
+        return response()->json(array('token' => $this->createToken($user,$ip),'id'=>$user->id));
     }
 
 
@@ -130,27 +130,27 @@ class Authenticate extends Controller
             $user = User::find($payload['sub']);
 
             $user->google = $profile['sub'];
-            $user->displayName = $user->displayName ?: $profile['name'];
+            $user->name = $user->name ?: $profile['name'];
             $user->email=$user->email?:$profile['email'];
             $user->save();
 
 
-            return response()->json(['token' => $this->createToken($user,$ip)]);
+            return response()->json(['token' => $this->createToken($user,$ip),'id'=>$payload['sub']]);
         }
         // Step 3b. Create a new user account or return an existing one.
         else
         {
-            $user = User::where('google', '=', $profile['sub']);
+             $user = User::where('google', '=', $profile['sub']);
             if ($user->first())
             {
-                return response()->json(['token' => $this->createToken($user->first(),$ip)]);
+                return response()->json(['token' => $this->createToken($user->first(),$ip),'id'=>$user->first()->id]);
             }
 
             $user = User::where('email', '=', $profile['email']);
 
             if(!$user->first()){
                 $user = new User;
-                $user->displayName = $profile['name'];
+                $user->name = $profile['name'];
                 $user->email= $profile['email'];
             }else{
                 $user =$user->first();
@@ -158,9 +158,67 @@ class Authenticate extends Controller
 
             $user->google = $profile['sub'];
             $user->save();
-            return response()->json(['token' => $this->createToken($user,$ip)]);
+            return response()->json(['token' => $this->createToken($user,$ip),'id'=>$user->id]);
         }
     }
+
+    public function instagram(Request $request)
+    {
+         $ip=$request->ip();
+        $client = new GuzzleHttp\Client();
+        $params = [
+            'code' => $request->input('code'),
+            'client_id' => $request->input('clientId'),
+            'client_secret' => Config::get('app.instagram_secret'),
+            'redirect_uri' => $request->input('redirectUri'),
+            'grant_type' => 'authorization_code',
+        ];
+        // Step 1. Exchange authorization code for access token.
+        $accessTokenResponse = $client->request('POST', 'https://api.instagram.com/oauth/access_token', [
+            'form_params' => $params
+        ]);
+        $accessToken = json_decode($accessTokenResponse->getBody(), true);
+        // Step 2a. If user is already signed in then link accounts.
+        if ($request->header('Authorization'))
+        {
+            $user = User::where('instagram', '=', $accessToken['user']['id']);
+            if ($user->first())
+            {
+                return response()->json(array('message' => 'There is already an Instagram account that belongs to you'), 409);
+            }
+            $token = explode(' ', $request->header('Authorization'))[1];
+            $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+            $user = User::find($payload['sub']);
+
+            $user->instagram = $accessToken['user']['id'];
+            $user->name = $user->name ?: $accessToken['user']['full_name'];
+            $user->email=$user->email?:$accessToken['user']['username'];
+            $user->avatar= $accessToken['user']["profile_picture"];
+            $user->save();
+            return response()->json(['token' => $this->createToken($user,$ip),'id'=>$user->id]);
+        }
+        // Step 2b. Create a new user account or return an existing one.
+        else
+        {
+            $user = User::where('instagram', '=', $accessToken['user']['id']);
+            if ($user->first())
+            {
+                return response()->json(['token' => $this->createToken($user->first(),$ip),'id'=>$user->id]);
+            }
+            $user = new User;
+            $user->instagram = $accessToken['user']['id'];
+            $user->name =  $accessToken['user']['full_name'];
+            $user->email= $accessToken['user']['username'];
+            $user->avatar= $accessToken['user']["profile_picture"];
+            $user->save();
+            return response()->json(['token' => $this->createToken($user,$ip),'id'=>$user->id]);
+
+        }
+    }
+
+
+
+    
 
 }
 
