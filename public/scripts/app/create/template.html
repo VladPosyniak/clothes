@@ -1,22 +1,16 @@
-<div class="create-post">
-			<div ng-ig="visible">
-                <input type="text" name="nameOfPost" ng-model="title" required placeholder="Название">
-                <textarea name="" ng-model="content" id="" placeholder="Описание"></textarea>
-                <input type="text" name="tagOfPost" ng-model="tag" required placeholder="Тег">
-                <button class="Add tag" ng-click='add_tag()'>Добавить</button>
-                <p class='post_tags'>{{tags}}</p>
+<div class="central-content-top">
+    <!--<div ng-if="visible">-->
+        <input type="text" name="nameOfPost" ng-model="title" required placeholder="название">
+        <textarea name="" ng-model="content" id="" placeholder="Описание"></textarea>
+        <button class="Add add_img" ngf-select ng-model="file" ngf-pattern="'image/*'"
+                       ngf-accept="'image/*'" ngf-max-size="10MB"
+                        ngf-resize="{width: 800, height: 400}" ngf-multiple="true"  ngf-keep="true"
+                        >Добавить фотографию</button>
 
-				<div ng-repeat="fil in file">
-	                <img ngf-src="fil" ngf-resize="{width: 50, height: 50, quality: 0.9}" />
-                </div>
-
-                <button class="Add" ngf-select ng-model="file" ngf-pattern="'image/*'"
-    					ngf-accept="'image/*'" ngf-max-size="10MB"
-    					ngf-resize="{width: 800, height: 400}" ngf-multiple="true"  ngf-keep="true"
-    					>Добавить фотографию</button>
-
-                <button class="Add">Выбрать категории</button>
-                <button class="sendPost" ng-click="submit()">Опубликовать</button>
-                </div>
-				
+        <button class="Add add_p">добавить абзац</button>
+        <input type="text" name="tagOfPost" ng-model="tag" required placeholder="Тег">
+                 <button class="Add tag" ng-click='add_tag()'>Добавить</button>
+                 <p class='post_tags'>{{tags}}</p>
+        <button class="sendPost" ng-click="submit()">опубликовать</button>
+    <!--</div>-->
 </div>

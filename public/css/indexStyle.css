@@ -1,205 +1,9 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #ECEDF1;
-    color: #717171;
-    font-family: Century Gothic;
-    font-size: 1.1em;
-}
-
-a {
-    color: #717171;
-}
-
-
-/*стили для блоков*/
-.wrapper {
-    display: block;
-    width: 1300px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-.container {
-    width: 980px;
-    height: 900px;
-    margin-left: 320px;
-}
-
-.left-panel {
-    position: fixed;
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    -webkit-border-top-left-radius: 7px;
-    -moz-border-radius-topleft: 7px;
-    border-top-left-radius: 7px;
-    overflow: auto;
-    border: solid 1px #E0E0E0;
-}
-
-.posts {
-    width: 600px;
-    float: left;
-    margin-right: 20px;
-}
-
-.right-panel {
-    display: inline-block;
-    width: 350px;
-    border: solid 1px #E0E0E0;
-    -webkit-border-top-right-radius: 7px;
-    -moz-border-radius-topright: 7px;
-    border-top-right-radius: 7px;
-    background-color: white;
-}
-
-/*конец стилей для блоков*/
-
-/*стили модулей правой панели*/
-
-
-.left-panel input {
-    display: block;
-    margin: 20px auto;
-    width: 85%;
-    padding: 8px;
-    border-radius: 7px;
-    border: 1.5px solid #E1E1E9;
-}
-
-
-
-.search-module input {
-    display: block;
-    margin: 20px auto;
-    width: 85%;
-    padding: 8px;
-    border-radius: 7px;
-    border: 1.5px solid #E1E1E9;
-}
-
-.search-module input:focus {
-    outline: none;
-
-}
-
-.menu-module {
-    border-bottom: 3px solid #8AC249;
-}
-
-.menu-module span {
-    width: 100%;
-    height: 50px;
-}
-
-.menu-module span img {
-    width: 50px;
-    height: 50px;
-    float: left;
-    margin: 0 14px;
-    line-height: 50px;
-    border-radius: 100%;
-}
-
-.menu-module span h2 {
-    line-height: 60px;
-}
-
-.menu-module ul li {
-    margin: 20px 40px;
-    list-style-type: none;
-    transition: border, padding 0.2s;
-}
-
-.menu-module ul li:hover {
-    border-left: 3px solid #F34235;
-    padding: 0 10px;
-}
-
-.menu-module ul li a {
-    text-decoration: none;
-    color: black;
-}
-
-.friends-module {
-    border-bottom: 3px solid #8AC249;
-}
-
-.friends-module h2 {
-    text-align: center;
-}
-
-.friends-module h2 a {
-    color: #A4A3A3;
-}
-
-.friends-module ul li {
-    list-style-type: none;
-    height: 50px;
-    display: block;
-    margin: 15px auto;
-}
-
-.friends-module ul {
-    margin: 0;
-    padding: 0;
-}
-
-.friends-module ul li a {
-    line-height: 50px;
-    text-decoration: none;
-    color: black;
-    transition: padding 0.2s;
-}
-
-.friends-module ul li a:hover {
-    padding: 0 5px;
-}
-
-.friends-module ul li img {
-    width: 50px;
-    height: 50px;
-    margin: 0 14px;
-    border-radius: 100%;
-    line-height: 50px;
-    float: left;
-}
-
-.exit-button button {
-    display: block;
-    margin: 10px auto;
-    font-size: 1.1em;
-    width: 90%;
-    color: #fff; /* цвет текста */
-    text-decoration: none; /* убирать подчёркивание у ссылок */
-    user-select: none; /* убирать выделение текста */
-    background: #F34235; /* фон кнопки */
-    padding: .7em 1.5em; /* отступ от текста */
-    outline: none; /* убирать контур в Mozilla */
-    border: none;
-    cursor: pointer;
-    -webkit-transition: transform 0.2s;
-    -moz-transition: transform 0.2s;
-    -ms-transition: transform 0.2s;
-    -o-transition: transform 0.2s;
-    transition: transform 0.2s;
-}
-
-.exit-button button:active{
-    transform: scale(0.9);
-}
-
-/* конец стилей модулей правой панели*/
-
-/*стили постов*/
-
-.create-post {
+.central-content-top {
     padding: 20px;
     background-color: #E1E1E9;
 }
 
-.create-post input[name='nameOfPost'] {
+.central-content-top input[name='nameOfPost'] {
     display: block;
     width: 95%;
     padding: 7px;
@@ -207,41 +11,19 @@ a {
     margin: 0 auto;
     border: none;
     background-color: #E1E1E9;
-     border: 1.5px solid #d9d9e0;
 }
 
-.create-post input[name='tagOfPost'] {
-    float:left;
-    display: block;
-    width: 75%;
-    padding: 7px;
-    font-size: 0.9em;
-    margin: 0 auto;
-    border: none;
-    background-color: #E1E1E9;
-     border: 1.5px solid #d9d9e0;
-}
-
-.create-post button.Add.tag{
-    padding: 7px;
-    width: 20%;
-    float:right;
-
-}
-
-
-.create-post textarea {
+.central-content-top textarea {
     display: block;
     width: 95%;
     max-width: 95%;
-    min-height: 150px;
+    min-height: 50px;
     max-height: 400px;
     padding: 7px;
     margin: 10px auto;
     border: none;
     font-size: 1.1em;
     background-color: #E1E1E9;
-     border: 1.5px solid #d9d9e0;
 }
 
 .sendPost {
@@ -256,6 +38,25 @@ a {
     cursor: pointer;
 }
 
+.post-img-create img{
+    width: 100%;
+    margin: 5px 0;
+
+}
+
+.post-img-create {
+    border-left: 3px solid #F34235;
+    padding: 5px;
+    border-bottom: 2px dashed white;
+}
+
+.post-p-create{
+    border-left: 3px solid #8AC249;
+    padding: 5px;
+    border-bottom: 2px dashed white;
+    width: 100%;
+}
+
 .Add {
     color: #fff; /* цвет текста */
     text-decoration: none; /* убирать подчёркивание у ссылок */
@@ -268,351 +69,17 @@ a {
     cursor: pointer;
 }
 
-
-
-.post {
-    border-bottom: 3px solid #8AC249;
-    border-left: solid 1px #E0E0E0;
-    border-right: solid 1px #E0E0E0;
-    border-top: solid 1px #E0E0E0;
-    background-color: white;
-    padding: 10px 20px;
-    margin: 15px 0;
-    transition: border 0.3s;
-
-}
-
-.post h2 {
-    width: 50%;
-    display: inline-block;
-}
-
-.post-likes {
-    width: 45%;
-    display: inline-block;
-    text-align: right;
-    padding: 0 10px;
-}
-
-.post-like {
-    font-size: 1.5em;
-    font-weight: 200;
-    color: #8AC249;
-    cursor: pointer;
-}
-
-.post-like:hover {
-    border-bottom: 2px solid #8AC249;
-}
-
-.post-dislike {
-    font-weight: 200;
-    font-size: 1.5em;
-    color: #F34235;
-    cursor: pointer;
-}
-
-.post-dislike:hover {
-    border-bottom: 2px solid #F34235;
-}
-
-.post:hover {
-    border-bottom: 3px solid #F34235;
-}
-
-.post img {
-    max-width: 100%;
-    max-height: 400px;
-    margin: auto;
+.modal .modal-content .modal-body img{
+    width: 70%;
     display: block;
-    cursor: pointer;
+    margin: 10px auto;
 }
 
-.post-information {
-    display: block;
-    width: 100%;
+.modal-footer a{
+    color:white;
 }
 
-.post-tags {
-    width: 50%;
-    display: inline-block;
-}
-
-.post-tags a {
-    display: inline-block;
-    margin: 2px;
-    padding: 5px;
-    font-size: 0.9em;
-    background-color: #8AC249;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-}
-
-.post-tags a:hover {
-    background-color: #F34235;
-}
-
-.post-author-date {
-    text-align: right;
-    width: 45%;
-    display: inline-block;
-}
-
-.post-date {
-    margin: 0 5px;
-}
-
-.post-author {
-    margin: 0 5px;
-}
-
-.post.ng-enter {
-    -webkit-transition: 1s;
-    transition: 1s;
-    opacity: 0;
-}
-.post.ng-enter-active {
-    opacity: 1;
-}
-
-.modalpost{
-    width:60%;
-    min-height:300px;
-    position:fixed;
-    top:10%;
-    left:20%;
-    z-index:12;
-    background-color:white;
-}
-
-.modalpostinside{
-    position:relative;
-}
-
-.modalpostinside .post{
-    border:none;
-}
-
-
-.modalpostclose{
-    width:20px;
-    height:20px;
-    background: black;
-    position:absolute;
-    top:10px;
-    right:10px;
-}
-
-.blackscreen{
-    z-index:11;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color:black;
-    opacity: 0.2;
-}
-
-
-
-.auth{
-    width:30%;
-    min-height:300px;
-    position:fixed;
-    top:10%;
-    left:35%;
-    z-index:12;
-    background-color:white;
-}
-
-.exit-button.google button {
-    background: #CA4532; /* фон кнопки */
-}
-
-.exit-button.instagram button{
-    background: #f03a5c; /* фон кнопки */
-}
-
-
-/* конец стилей постов*/
-
-/*стили для правой колонки*/
-
-.popular-module {
-    -webkit-border-top-right-radius: 7px;
-    -moz-border-radius-topright: 7px;
-    border-top-right-radius: 7px;
-    width: 100%;
-    border-bottom: 3px solid #F34235;
-    margin-bottom: 10px;
-}
-
-.popular-module h3 {
-    margin: 0;
-    padding: 20px;
-    border-bottom: solid 1px #E0E0E0;
-}
-
-.popular-module ul {
-    margin: 0;
-    padding: 0;
-}
-
-.popular-module ul li {
-    list-style-type: none;
-    margin: 10px;
-    padding: 10px;
-    border-bottom: solid 1px #E0E0E0;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.popular-module li:hover {
-    padding-left: 15px;
-}
-
-.popular-module ul li a {
-    color: #717171;
-    text-decoration: none;
-}
-
-.popular-module-likes {
-    background-color: #E1E1E9;
-    padding: 5px;
-    margin-left: 10px;
-    border-radius: 8px;
-
-}
-
-.categories-module {
-    border-bottom: 3px solid #F34235;
-}
-
-.categories {
-    padding: 10px;
-}
-
-.categories-module h3 {
-    margin: 0;
-    padding: 20px;
-    border-bottom: solid 1px #E0E0E0;
-}
-
-.categories a {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px;
-    background-color: #8AC249;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-}
-
-.categories a:hover {
-    background-color: #F34235;
-}
-
-/*конец стилей для правой колонки*/
-
-
-
-.central-content-top{
-    width: 100%;
-    text-align: center;
-    background-color: white;
-    padding-top: 10px;
-    border: solid 1px #E0E0E0;
-}
-.central-content-top h1{
-    margin: 0;
-    padding: 10px 0;
-}
-.central-content-top .count-buttons {
-    width: 100%;
-    padding: 5px 0;
-    border-top: solid 1px #E0E0E0;
-}
-
-.central-content-top .count-button .button-count{
-    font-weight: 700;
-}
-
-.central-content-top .count-button{
-    display: inline-block;
-    padding: 5px;
-    margin: 10px;
-    text-decoration: none;
-}
-
-/* The Modal (background) */
-.modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.modal-content img{
-     max-width: 100%;
-    max-height: 400px;
-    margin: auto;
-    display: block;
-}
-
-/* The Close Button */
-.modal-close {
-    color: white;
-    float: right;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Modal Header */
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-/* Modal Body */
-.modal-body {padding: 2px 16px;}
-
+/*модаль*/
 
 .modal .modal-body .comments{
     width: 90%;
@@ -671,48 +138,38 @@ a {
     padding-right: 10px ;
 }
 
-
-
-/* Modal Footer */
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+.goods{
+    width: 100%;
+    text-align: center;
 }
 
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    padding: 0;
-    border: 1px solid #888;
-    width: 40%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+.goods ul{
+    margin:0;
+    padding: 10px 0;
+    width: 100%;
+
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.goods ul li{
+    list-style-type: none;
+    display: inline-block;
+    width: 23%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+.goods ul li h3{
+    margin: 0;
+}
+.goods ul li img{
+    max-width: 100%;
+    max-height: 100px;
+    display: block;
+    margin: auto;
+
 }
 
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
-
-@media all and (max-width: 1000px) {
-    .modal-content{
-        width: 80%;
-    }
-}
-
-@media all and (max-width: 400px) {
-    .modal-content{
-        width: 90%;
-    }
-}
+/*модаль*/
