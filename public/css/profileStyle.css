@@ -1,0 +1,102 @@
+/*стили профиля начало*/
+.central-content-top{
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 10px 0;
+    border: solid 1px #E0E0E0;
+}
+.central-content-top h1{
+    margin: 0;
+    padding: 10px 0;
+}
+.central-content-top .count-buttons {
+    width: 100%;
+    padding: 5px 0;
+    border-top: solid 1px #E0E0E0;
+    border-bottom: solid 1px #E0E0E0;
+}
+
+.central-content-top .count-button .button-count{
+    font-weight: 700;
+}
+.central-content-top .subscribe{
+    display: block;
+    margin: 10px auto;
+    font-size: 1.1em;
+    width: 90%;
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #8AC249 ; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+    border: none;
+    cursor: pointer;
+    -webkit-transition: transform 0.2s;
+    -moz-transition: transform 0.2s;
+    -ms-transition: transform 0.2s;
+    -o-transition: transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.central-content-top .subscribe:active{
+    transform: scale(0.9);
+}
+
+
+.central-content-top .profile-photo{
+    display: block;
+    margin: auto;
+    width: 170px;
+    height:170px;
+    border-radius: 50%;
+}
+
+.central-content-top .count-button{
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+    text-decoration: none;
+    -webkit-transition: color .2s;
+    -moz-transition: color .2s;
+    -ms-transition: color .2s;
+    -o-transition: color .2s;
+    transition: color .2s;
+}
+
+.central-content-top .count-button:hover{
+    color: black;
+}
+
+.central-content-top .latest-photos .latest-photos-header {
+    text-align: left;
+    margin: 10px 40px;
+}
+
+.central-content-top .latest-photos .photos{
+    width: 100%;
+    display: block;
+}
+.central-content-top .latest-photos .photos .photo{
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    line-height: 130px;
+    text-align: center;
+    display: inline-block;
+}
+    .central-content-top .latest-photos .photos .photo img{
+        max-height: 150px;
+        max-width: 150px;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+}
+
+
+/*стили профиля конец*/
