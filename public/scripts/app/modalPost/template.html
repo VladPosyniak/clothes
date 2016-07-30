@@ -1,70 +1,94 @@
 <div ng-show="postid!=0">
 
-<div id="myModal" class="modal" ng-click="close()">
-    <!-- Modal content -->
-    <div class="modal-content"  ng-click="$event.stopPropagation()">
-        <div class="modal-header">
-            <h2>{{post.title}}</h2>
-            <span class="modal-close" ng-click="close()">×</span>
-        </div>
-        <div class="modal-body">
-            <div ng-repeat="image in post.imagesArr track by $index" >
-		  		<img ng-src="{{image}}"/>
-        	   </div>
-            <br>
-            <p>{{post.content}}</p>
-        </div>
-        <div class="modal-footer">
-            <div class="post-information">
-                <div class="post-tags">
-                        <a ng-repeat="tag in post.taglist" href="">{{tag}}</a>
+    <div id="myModal" class="modal" ng-click="close()">
+        <!-- Modal content -->
+        <div class="modal-content"  ng-click="$event.stopPropagation()">
+            <div class="modal-header">
+                <h2>{{post.title}}</h2>
+                <span class="modal-close" ng-click="close()">×</span>
+            </div>
+            <div class="modal-body">
+                <div ng-repeat="image in post.imagesArr track by $index" >
+    		  		<img ng-src="{{image}}"/>
+            	   </div>
+                <br>
+                <p>{{post.content}}</p>
+            </div>
+
+            <div class="goods">
+                    <ul>
+                        <li>
+                            <img src="http://cs623325.vk.me/v623325673/1b0e4/dw2KOcSB3UM.jpg" alt="">
+                            <a href="">Платье AREFEVA L9050 Бежевое</a>
+                            <br>
+                            <span class="price">5.99$</span>
+                        </li>                    <li>
+                            <img src="http://cs623325.vk.me/v623325673/1b0e4/dw2KOcSB3UM.jpg" alt="">
+                            <a href="">мантия</a>
+                            <br>
+                            <span class="price">5.99$</span>
+                        </li>                    <li>
+                            <img src="http://cs623325.vk.me/v623325673/1b0e4/dw2KOcSB3UM.jpg" alt="">
+                            <a href="">мантия</a>
+                            <br>
+                            <span class="price">5.99$</span>
+                        </li>
+                        <li>
+                            <img src="http://cs623325.vk.me/v623325673/1b0e4/dw2KOcSB3UM.jpg" alt="">
+                            <a href="">мантия</a>
+                            <br>
+                            <span class="price">5.99$</span>
+                        </li>
+                    </ul>
+            </div>
+
+
+
+            <div class="modal-footer">
+                <div class="post-information">
+                    <div class="post-tags">
+                            <a ng-repeat="tag in post.taglist" href="">{{tag}}</a>
+                        </div>
+                    <div class="post-author-date">
+                        <span class="post-author"><a href="">{{post.author}}</a></span>
+                        <span class="post-date">24.03.2016</span>
                     </div>
-                <div class="post-author-date">
-                    <span class="post-author"><a href="">{{post.author}}</a></span>
-                    <span class="post-date">24.03.2016</span>
                 </div>
             </div>
-        </div>
-        <div class="comments">
-                <hr/>
-                <div ></div>
-                <hr/>
-        </div>
-
-
-
-        <div class="comments">
+           
+            <div class="comments">
                 <h3>Комментари:</h3>
-                <div ng-if='id'>
-                    <textarea ng-model='content' class="comments-area" cols="30" rows="5"></textarea>
-                    <input type="submit" ng-click='create_comment()' value="отправить">
-                    <button class="add-content">прикрепить изображение</button>
-                </div>
+
+                <form action="">
+                   <div ng-if='id'>
+                        <textarea ng-model='content' class="comments-area" cols="30" rows="5"></textarea>
+                        <input type="submit" ng-click='create_comment()' value="отправить">
+                        <button class="add-content">прикрепить изображение</button>
+                    </div>
+                </form>
+
                 <ul>
                     <li class="comment" ng-repeat="comment in comments">
-                        <h3><a href="">{{comment.name}}</a></h3>
+                            <h3><a href="">{{comment.name}}</a></h3>
 
-                        <p>{{comment.content}}</p>
+                            <p>{{comment.content}}</p>
 
                         <div class="comment-footer">
-                            <ul>
-                                <li ng-if='id!=comment.author'><a href="">ответить</a></li>
-                                <li ng-if='id==comment.author'><a ng-click='delete_comment(comment.id_of_comment)' href="">удалить</a></li>
-                                <li>{{comment.date}}</li>
-                            </ul>
+                                <ul>
+                                    <li ng-if='id!=comment.author'><a href="">ответить</a></li>
+                                    <li ng-if='id==comment.author'><a ng-click='delete_comment(comment.id_of_comment)' href="">удалить</a></li>
+                                    <li>{{comment.date}}</li>
+                                </ul>
                         </div>
                     </li>
                 </ul>
+            </div>
+
+
+
+
         </div>
-
-
-
-
     </div>
-</div>
-
-
 
 </div>
-
 

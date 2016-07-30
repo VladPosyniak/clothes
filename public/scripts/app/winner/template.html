@@ -1,9 +1,10 @@
+<div class="best-post-module">
+    <h3>Пост дня:</h3>
 
-            <div class="categories-module">
-                <h3>Лучший пост:</h3>
-                <h4>{{post.title}}</h4>
-                <div ng-repeat="image in post.imagesArr track by $index" >
-		  			<img ng-src="{{image}}" width="300px"/>
-        		</div>
+    <div ng-repeat="image in post.imagesArr track by $index" >
+		<img ng-src="{{image}}" width="300px"/>
+    </div>
 
-            </div>
+    <h4>{{post.title}}</h4>
+    <p>{{post.content}}</p>
+</div>

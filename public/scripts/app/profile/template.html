@@ -1,22 +1,16 @@
-<div >    
-    <div class="menu-module">
-            <span>
-                <img ng-src="{{avatar}}" alt="">
-                <h2>{{name}}</h2>
+<div class="menu-module">
+    <span class="name-and-photo">
+        <img ng-src="{{avatar}}" alt="">
+        <h2>{{name}}</h2>
+    </span>
 
-            </span>
-
-            <switcher></switcher>
-            
-    </div>
-
-            <div class="exit-button">
-                <button ng-click="logout()">logout</button>
-            </div>
-
-            <div class='exit-button google'>
-                <button ng-click="unlink('google')">unlink google</button>
-            </div>
+    <switcher></switcher>
 </div>
 
-        
+<div class="exit-button">
+    <button ng-click="logout()">logout</button>
+</div>
+
+<div class='exit-button google'>
+    <button ng-click="unlink('google')">unlink google</button>
+</div>
