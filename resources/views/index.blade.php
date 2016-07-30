@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>home</title>
     <base href="/">
-    <link rel="stylesheet" href="{{asset('css/IndexStyle.css')}}">
+    <link rel="stylesheet" href="{{asset('css/indexStyle.css')}}">
     <link rel="stylesheet" href="{{asset('css/subStyle.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
