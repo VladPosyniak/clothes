@@ -100,7 +100,10 @@ class PostsController extends Controller
             else{
                 return response()->json(array('interval' => "Invalid interval"));
             }
+
+
             return json_encode($query);
+
         }
 
     public function getPost(Request $request){

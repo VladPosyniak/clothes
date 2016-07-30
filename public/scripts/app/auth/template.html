@@ -1,35 +1,33 @@
 	<div class='exit-button'>
 
 	<button ng-click='authVis()'>Войти</button>
-	<div class="exit-button">
-            <button id="modalBtn_register">зарегистрироваться</button>
-    </div>
 
 	</div>
 
 
 <div ng-if='visible'>
+	<div class='auth' >
 
+		<div>
+			<input type="email" placeholder="Email" ng-model="$parent.email">
+		</div>
 
-<div class='auth' >
-	<div id="myModal_register" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Авторизация</h2>
-                <span class="modal-close" id="modal-close_register" ng-click="close()">×</span>
-            </div>
-            <div class="modal-body">
-                <input type="email" ng-model="$parent.email" placeholder="Email">
-                <input type="password" ng-model="$parent.password" placeholder="Password">
-                <div class="socials">
-                    <button class="submit" ng-click="login()">Submit</button>
-                    <button class="soc-google" ng-click="authenticate('google')">Sign in with Google</button>
-                    <button class="soc-instagram" ng-click="authenticate('instagram')">Sign in with Instagram</button>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div>
+			<input type="password" placeholder="Password" ng-model="$parent.password">
+		</div>
+
+		<div class='exit-button'>
+			<button ng-click="login()" >Submit</button>
+		</div>
+
+		<div class='exit-button google'>
+			<button ng-click="authenticate('google')">Sign in with Google</button>
+		</div>
+		<div class='exit-button instagram'>
+			<button ng-click="authenticate('instagram')">Sign in with Instagram</button>
+		</div>
+
+	</div>
 
 	<div class="blackscreen" ng-click="close()"></div>
 </div>
